@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//和订阅发布的区别我感觉是在于细分化如发布订阅可以在用户A指定的频道接收指定的订阅信息,而观察者一但在观察列表里只要观察目标发生变化所有的观察者都会触发
+	//发布订阅多了频道这个概念更加细致
+	class subpack {
+		constructor(name) {
+			this.name = name;
+			this.observes = []
+		}
+		add(observer) {
+			this.observes.push(observer)
+		}
+		remove(observer) {
+			this.observes = this.observes.filter(item => {
+				return item !== observer;
+			})
+		}
+		nodify(data) {
+			this.observes.forEach(item => {
+				item.update(data)
+			})
+		}
+	}
+
+	class observer {
+		constructor(name) {
+			this.name = name;
+		}
+
+		update(data) {
+			console.log(data, this.name);
+		}
+	}
+	let observer1 = new observer('1')
+	let observer2 = new observer('2');
+	let box = {
+		a: 10
+	};
+	let sub = new subpack('观察目标:box')
+	sub.add(observer1)
+	sub.add(observer2)
+	let proxyBox = new Proxy(box, {
+		set(tag, key, val) {
+			tag[key] = val;
+			sub.nodify('我改变了box状态,被观察着观察到了')
+		}
+	})
+</script>

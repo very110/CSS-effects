@@ -1,0 +1,143 @@
+body {
+	background: url(https://img1.baidu.com/it/u=3460554976,3919389814&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=258) no-repeat;
+	background-attachment: fixed;
+	background-size: 100% auto;
+
+}
+
+.to {
+	height: 100px;
+	background-color: rgba(0, 0, 0, .8);
+
+}
+
+.w {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.mg {
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin-top: 10px;
+}
+
+img {
+	width: 100%;
+
+}
+
+.to ul li:nth-child(1) {
+	margin-left: 100px;
+}
+
+.to ul li {
+	margin-left: 75px;
+	float: left;
+}
+
+.to ul li a {
+	color: #FFFFFF;
+	font-size: 20px;
+	line-height: 100px;
+}
+
+body {
+	perspective: 2000px;
+}
+
+section {
+	position: relative;
+	bottom: 0;
+	width: 300px;
+	height: 200px;
+	margin: 220px auto;
+	transform-style: preserve-3d;
+	animation: move 8s linear infinite;
+	background: url(https://img2.baidu.com/it/u=624403825,2246576595&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=411) no-repeat;
+	background-size: 100% auto;
+}
+
+@keyframes move {
+	0% {
+		transform: rotateY(0);
+	}
+
+	100% {
+		transform: rotateY(360deg)
+	}
+}
+
+section div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+}
+
+section div:nth-child(1) {
+	transform: translateZ(400px);
+	background: url(https://img2.baidu.com/it/u=624403825,2246576595&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=411) no-repeat;
+	background-size: 100% auto;
+
+}
+
+section div:nth-child(2) {
+	transform: rotateY(60deg) translateZ(400px);
+	background: url(https://img2.baidu.com/it/u=624403825,2246576595&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=411) no-repeat;
+	background-size: 100% auto;
+
+}
+
+section div:nth-child(3) {
+	transform: rotateY(120deg) translateZ(400px);
+	background: url(https://img2.baidu.com/it/u=624403825,2246576595&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=411) no-repeat;
+	background-size: 100% auto;
+
+}
+
+section div:nth-child(4) {
+	transform: rotateY(180deg) translateZ(400px);
+	background: url(https://img2.baidu.com/it/u=624403825,2246576595&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=411) no-repeat;
+	background-size: 100% auto;
+
+}
+
+section div:nth-child(5) {
+	transform: rotateY(240deg) translateZ(400px);
+	background: url(https://img2.baidu.com/it/u=624403825,2246576595&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=411) no-repeat;
+	background-size: 100% auto;
+}
+
+section div:nth-child(6) {
+	transform: rotateY(300deg) translateZ(400px);
+	background: url(https://img2.baidu.com/it/u=624403825,2246576595&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=411) no-repeat;
+	background-size: 100% auto;
+}
+
+section:hover {
+	animation-play-state: paused;
+}
+
+section div a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.cen {
+	margin-top: 30px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 30px;
+
+	color: #FFFFFF;
+}
+
+span {
+	font-size: 16px;
+	color: #ccc;
+}

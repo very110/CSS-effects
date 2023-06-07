@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="111111111111" id="input">
+		<button id="btn">注册</button>
+	</body>
+</html>
+<script>
+	btn.addEventListener("click", function(event) {
+		console.log(checks.check());
+	});
+
+	function checkEmpty() {
+		if (input.value.length == 0) {
+			console.log("这里不能为空");
+			return
+		}
+		return "next"
+	}
+
+	function checkNumber() {
+		if (Number.isNaN(+input.value)) {
+			console.log("这里必须是数字");
+			return
+		}
+		return "next"
+	}
+
+	function checkLength() {
+		if (input.value.length < 6) {
+			console.log("这里要大于6个数字");
+			return
+		}
+		console.log('成功');
+		return "next"
+	}
+
+	class Chain {
+		constructor(fn) {
+			this.checkRule = fn || (() => 'next');
+			this.nextRule = null;
+		}
+		addRule(nextFn) {
+			this.nextRule = new Chain(nextFn);
+			return this.nextRule;
+		}
+		check() {
+			let cur = this;
+			let res = null;
+			while ((res = cur.checkRule()) === 'next') {
+				cur = cur.nextRule;
+
+			}
+			return res;
+
+			// return this.checkRule()==='next'?this.nextRule.check():null;
+		}
+		end() {
+			this.nextRule = {
+				checkRule() {
+					return 'end'
+				}
+			}
+			// end() {
+			// 	this.nextRule = {
+			// 		check: () => "end"
+			// 	};
+			// }
+		}
+	}
+
+	const checks = new Chain();
+	checks.addRule(checkEmpty).addRule(checkNumber).addRule(checkLength).end();
+</script>

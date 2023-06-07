@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function fn(a) {
+		console.log(this.name,arguments);
+		return 111;
+	}
+	let o = {
+		name: 'gg'
+	}
+	Function.prototype.myApply = function(o,arr) {
+		o = o || window;
+		let newArgs = [];
+		let res=null;
+		o.fn = this;
+		if(!arr){
+			res=o.fn();
+		}else{
+			for (let i = 0; i < arr.length; i++) {
+				newArgs.push('arr[' + i + ']');
+			}
+			res = eval("o.fn(" + newArgs + ")");
+			
+		}
+		delete o.fn;
+		return res;
+		
+	}
+	console.log(fn.myApply(o,[1,2]));
+</script>

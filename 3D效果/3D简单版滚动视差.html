@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body{
+			}
+			
+			.wapper {
+				height: 100vh;
+				perspective: 3px;
+				overflow-x: hidden;
+			}
+
+			.wapper div {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-style: 30px;
+				letter-spacing: 2px;
+			}
+
+			
+
+			.bg {
+				background-size: cover;
+				background-repeat: no-repeat;
+				height: 100vh;
+				background-position: center center;
+				transform: translateZ(-1px) scale(1.4);
+				
+				z-index: -1;
+			}
+
+			.headerimg {
+				z-index: -1;
+				transform: translateY(-30vh) translateZ(1px);
+				color: white;
+				font-size: 30px;
+			}
+			.title{
+				height: 40vh;
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wapper">
+			<div class="bg" style="background-image: url('image/滚动视差图片1.jpg');"></div>
+			<div class="headerimg">Eget porttitor lorem</div>
+			<div class="title">Aenean sit amet erat nunc</div>
+			<div class="bg" style="background-image: url('image/滚动视差图片2.jpg');"></div>
+			<div class="headerimg">Eget porttitor lorem</div>
+			<div class="title">Aenean sit amet erat nunc</div>
+		</div>
+	</body>
+</html>

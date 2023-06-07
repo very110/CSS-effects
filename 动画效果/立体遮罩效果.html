@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-image: linear-gradient(45deg, transparent, black);
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			a {
+				position: absolute;
+				text-decoration: none;
+				color: white;
+				font-weight: 700;
+				font-size: 50px;
+			}
+
+			a::after,
+			a::before {
+				content: '';
+				padding: .9em .4em;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 100%;
+				transform: translate(-50%, -50%);
+				border: 15px solid #000;
+				animation: tipsy 6s infinite alternate ease-in-out;
+			}
+
+			a:before {
+				border-color: red yellow rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+				z-index: -1;
+			}
+
+			a::after {
+				border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) red yellow;
+				box-shadow: 25px 25px 25px 5px rgba(46, 46, 49, .8), -3px -3px 25px 5px rgba(255, 255, 255,.8), inset 5px 5px 3px rgba(46, 46, 49, .8), inset -2px -2px 3px white;
+			}
+
+			@keyframes tipsy {
+				0% {
+					transform: translateX(-50%) translateY(-50%) rotate(0deg);
+				}
+
+				100% {
+					transform: translateX(-50%) translateY(-50%) rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#">我是无敌的</a>
+	</body>
+</html>

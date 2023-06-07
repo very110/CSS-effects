@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.content {
+				width: 100vw;
+				height: 300px;
+				background-color: aqua;
+				display: grid;
+				grid-template-rows: repeat(3, 1fr);
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			.con {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				grid-column: 2 / 3;
+				grid-row: 2/3;
+				user-select: none;
+			}
+
+			.theDropDown {
+				position: fixed;
+				visibility: hidden;
+				z-index: -1;
+				left: 0;
+				top: 0;
+				width: 100vw;
+				background-image: linear-gradient(to right, red 30%, #efefef 50%, red 100%);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				animation: naw 2s linear infinite alternate;
+				background-size: 200%;
+			}
+
+			@keyframes naw {
+				0% {
+					background-position: 0 50%;
+				}
+
+				50% {
+					background-position: 100% 150%;
+				}
+
+				100% {
+					background-position: 50% 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="theDropDown">
+			准备加载中
+		</div>
+		<div class="content">
+			<div class="con">
+				<h2>下拉加载</h2>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	let drop = document.querySelector('.theDropDown');
+	let con = document.querySelector('.content');
+	let startY = 0;
+
+	function init() {
+		drop.style.visibility = 'hidden';
+		con.style.marginTop = 0;
+		drop.style.height = 0;
+		con.onmousemove = ''
+	}
+
+	function threes() {
+		let flag = true;
+		return function(e) {
+			if (flag) {
+				console.log('zwe');
+				flag = false;
+				startY = e.y;
+				drop.style.visibility = 'initial';
+
+				con.onmousemove = function(e) {
+					let h = e.y - startY;
+					console.log(h);
+					if (h < 0 || h > con.offsetHeight) {
+						return;
+					}
+					drop.style.height = h + 'px';
+					con.style.marginTop = h + 'px'
+				}
+				con.onmouseup = function() {
+					console.log(drop.offsetHeight, con.offsetHeight / 2);
+
+					if (drop.offsetHeight < con.offsetHeight / 2) {
+						flag = true;
+						console.log('加载失败');
+						init();
+					} else {
+						con.onmousemove = '';
+						setTimeout(() => {
+							drop.innerHTML = '加载成功...';
+							setTimeout(() => {
+								init()
+								drop.innerHTML = '正在加载中';
+								flag = true;
+							}, 1000)
+						}, 2000)
+					}
+
+				}
+			}
+		}
+	}
+	con.onmousedown = threes();
+</script>

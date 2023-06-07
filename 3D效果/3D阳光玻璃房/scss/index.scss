@@ -1,0 +1,160 @@
+$bg-1: #c6c5e1;
+$bg-2: #686688;
+
+$white-1: #fbfbfb;
+$white-2: #f2f2f2;
+$white-3: #c4c2d6;
+$white-4: #675d6e;
+
+$water-1: #7095c9;
+$water-2: #6187be;
+$water-3: #4d6d98;
+$water-4: #234062;
+
+$light-1: #def5f1;
+$light-2: #badfd9;
+
+@mixin cube-front($w,$h,$c,$color:blue){
+	width: $w;
+	height:$h;
+	transform:rotateX(90deg) translateZ(-$c);
+	transform-origin: top;
+	background-color: $color !important;
+}
+@mixin cube-back($a, $b, $c, $color:blue) {
+  width: $a;
+  height: $b;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-color: $color;
+}
+
+@mixin cube-bottom($w,$h,$c,$color:blue){
+	width: $w;
+	height: $h;
+	transform:rotateX(90deg);
+	transform-origin: top;
+	background-color: $color !important;
+}
+
+@mixin cube-left($w,$h,$c,$color:blue){
+	width: $c;
+	height: $h;
+	transform-origin: left bottom;
+	transform: rotateY(-90deg) rotateZ(90deg) translateX(-$h);
+	background-color: $color !important;
+	
+}
+
+@mixin cube-right($a, $b, $c, $color:blue) {
+  width: $c;
+  height: $b;
+  transform-origin: right bottom;
+  transform: rotateY(90deg) rotateZ(-90deg) translateX($b) translateZ($a - $c);
+  background-color: $color !important;
+  /* 30 - 24 */
+}
+
+
+@mixin cube-top($a, $b, $c, $color:blue) {
+  width: $a;
+  height: $c;
+  transform: translateZ($b);
+  background-color: $color !important;
+}
+
+@mixin cube-bottom($a, $b, $c, $color:blue) {
+  width: $a;
+  height: $c;
+  background-color: $color !important;
+}
+@mixin cube($w,$h,$c,$color:blue){
+	&-front {
+		@include cube-front($w,$h,$c,$color);
+	}
+	
+	&-back{
+		@include cube-back($w,$h,$c,$color)
+	}
+	&-left{
+		@include cube-left($w,$h,$c,$color)
+	}
+	&-right {
+	    @include cube-right($w,$h,$c,$color);
+	  }
+	&-top {
+	    @include cube-top($w,$h,$c,$color);
+	  }
+	&-bottom {
+	    @include cube-bottom($w,$h,$c,$color);
+	  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-1;
+  font-size: 2em;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transform-style: preserve-3d;	
+}
+
+	.house {
+	  width: 36rem;
+	  height: 24rem;
+	  border: 1px solid #000;
+	  transform:perspective(2000px) rotateX(30deg) rotateZ(0deg);
+	  position: relative;
+	  .cube{
+	  	position: absolute;
+	  }
+	  .face{
+	  	background-color: blueviolet;
+	  	position: absolute;
+	  }
+	  .floorMain {
+	    width: 30rem;
+	    height: 24rem;
+	    border: 1px solid blue;
+		
+		
+	   @include cube(30rem, .4rem, 24rem, blue)//第一和第3为Main的宽度和高度,第二个是立方体的实际高度
+	   
+	  }
+	  
+	  .floorRightDown{
+			right: 0;
+			top: 0;
+			width: 6rem;
+			height: 8rem;
+			@include cube(6rem, .4rem, 8rem, red)
+	  }
+	  
+	  .floorRightUp{
+		  right: 0;
+		  bottom: 0;
+		  width: 6rem;
+		  height: 4rem;
+		  @include cube(6rem, .4rem, 4rem, yellow)
+	  }
+	  
+	  .floorGlass{
+		  right: 0;
+		  top: 8rem;
+		  width: 6rem;
+		  height: 12rem;
+		  @include cube(6rem, 1rem, 12rem, red)
+	  }
+	  
+	}

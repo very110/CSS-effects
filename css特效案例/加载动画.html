@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wapeer {
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+				position: relative;
+			}
+
+			.wapeerChild1,
+			.wapeerChild2,
+			.wapeerChild3 {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				background-color: red;
+				border-radius: 50%;
+				transform-origin: 50% 50px;
+
+			}
+
+			.wapeerChild1 {
+				width: 30px;
+				height: 30px;
+				transition: all 1s .3s;
+			}
+
+			.wapeerChild2 {
+				width: 25px;
+				height: 25px;
+				transition: all 1s .4s;
+			}
+
+			.wapeerChild3 {
+				width: 20px;
+				height: 20px;
+				transition: all 1s .5s;
+			}
+
+			.wapeer:hover .w {
+				transform: translate(-50%, 0) rotate(1turn);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wapeer">
+			<div class="w wapeerChild1"></div>
+			<div class="w wapeerChild2"></div>
+			<div class="w wapeerChild3"></div>
+		</div>
+	</body>
+</html>

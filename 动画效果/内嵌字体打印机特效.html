@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			:root {
+				font-size: 20px;
+				background-color: #57606f;
+				color: #2f3542;
+			}
+
+			body {
+				float: left;
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.wapper {
+				position: relative;
+			}
+
+			.wapper h1 {
+				font-family: Consolas;
+				user-select: none;
+				font-size: 120px;
+				width: 1ch;
+				overflow: hidden;
+				white-space: nowrap;
+				animation: a1 3s steps(16) forwards;
+				text-shadow: 0 1px 0 #fff;
+			}
+
+			@keyframes a1 {
+
+				50%,
+				60% {
+					width: 5ch;
+				}
+
+				100% {
+					width: 16ch;
+				}
+			}
+
+			.pointer {
+				position: absolute;
+				top: 0;
+				right: -30px;
+				width: 20px;
+				height: 100%;
+				background-color: #2f3542;
+				animation: a2 .4s linear 3s infinite alternate;
+			}
+
+			@keyframes a2 {
+				to {
+					opacity: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wapper">
+			<h1>Build helloWorld</h1>
+			<div class="pointer"></div>
+		</div>
+	</body>
+</html>

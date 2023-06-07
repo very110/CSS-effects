@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#bg {
+				box-shadow: 0 0 5px black;
+			}
+
+			canvas {
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="320" height="528" id="bg"></canvas>
+		<canvas width="320" height="528" id="role"></canvas>
+		<canvas width="320" height="528" id="bullet"></canvas>
+		<canvas width="320" height="528" id="enemy"></canvas>
+	</body>
+</html>
+<script src="./js/bg.js"></script>
+<script src="./js/role.js"></script>
+<script src="./js/bullet.js"></script>
+<script src="./js/enemy.js"></script>
+<script>
+	function getCanvasWH(canvas) {
+		return [canvas.width, canvas.height];
+	}
+
+	function getImg(src) {
+		let img = new Image();
+		img.src = src
+		return img
+	}
+
+	function getEnemy() {
+		return enemy;
+	}
+	const getE = (selection) => document.querySelector(selection);
+
+	const bgCanvas = new Bg(getE('#bg'))
+	const roleCanvas = new Role(getE('#role'), 66, 82);
+	const bl = new Bullets(getE('#bullet'), 48, 14, roleCanvas);
+	const enemy = new EnemyManage(getE('#enemy'), roleCanvas);
+</script>

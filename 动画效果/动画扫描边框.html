@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.conic-demo::after {
+				animation: opacityChange 5s infinite linear;
+			}
+
+			@keyframes opacityChange {
+				50% {
+					opacity: .5;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			.my-conic {
+				position: relative;
+				width: 400px;
+				height: 300px;
+				background-color: black;
+				overflow: hidden;
+			}
+
+			.my-conic::after {
+				position: absolute;
+				content: '';
+				background-color: black;
+				left: 6px;
+				top: 8px;
+				width: calc(100% - 12px);
+				height: calc(100% - 20px);
+			}
+
+			.my-conic::before {
+				position: absolute;
+				content: '';
+				left: -50%;
+				top: -50%;
+				width: 200%;
+				height: 200%;
+				color: transparent;
+				background-image: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
+				animation: myRotate 3s linear infinite;
+			}
+
+			@keyframes myRotate {
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			.c {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				background-image: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ggawaweawd"></div>
+		<div class="my-conic conic-demo"></div>
+		<img src="../" alt="">
+		<!-- <div class="c"></div> -->
+	</body>
+</html>
+<script>
+	[].
+</script>

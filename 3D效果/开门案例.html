@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				background-color: black;
+			}
+
+			.wapper-box {
+				width: 200px;
+				height: 200px;
+				margin: 100px auto;
+				perspective: 400px;
+				transform-style: preserve-3d;
+				position: relative;
+
+			}
+
+			.box:nth-child(1) {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 100px;
+				height: 200px;
+				transform: translate(-50%, -50%) translateZ(-1px);
+				background-color: white;
+			}
+
+			.box:nth-child(2)::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				width: 20px;
+				height: 20px;
+				background-image: radial-gradient(red 20%,yellow 20%);
+				border-radius: 100%;
+			}
+
+			.box:nth-child(2) {
+				position: absolute;
+
+				width: 100px;
+				height: 200px;
+				left: 50%;
+				top: 50%;
+				background-color: black;
+				transform-origin: right center;
+				transform: translate(-50%, -50%);
+				border: 1px solid white;
+				transition: all 2s;
+			}
+
+
+
+			.wapper-box:hover .box:nth-child(2) {
+				transform: translate(-50%, -50%) rotateY(90deg);
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wapper-box">
+			<div class="box">
+			</div>
+			<div class="box">
+			</div>
+		</div>
+	</body>
+</html>

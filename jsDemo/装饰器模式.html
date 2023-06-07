@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function axios(url,method,options){
+		console.log(this);
+		console.log('发送请求',url,method,options);
+	}
+	axios.__proto__.before=function(beforeFn){
+			
+			let that=this;
+			return function(url,method,options){
+					console.log(this);
+					beforeFn.apply(this,[url,method,options]);
+					that.apply(this,[url,method,options]);
+			}
+			
+	}
+	
+	let token_axios=axios.before(function(url,method,options){
+			console.log(url,method,this);
+			options.token='a102dw'
+	});
+	
+	let obj={
+		token_axios
+	}
+	obj.token_axios('127.0.0.1','get',{
+		data:{
+			a:10
+		}
+	})
+	
+	
+	
+	
+</script>

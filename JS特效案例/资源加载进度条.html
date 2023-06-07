@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.header{
+				position: fixed;
+				top: 0;
+				width: 0%;
+				height: 5px;
+				background-color: aqua;
+				box-shadow:0px 3px 5px red;
+				transition: all 1s linear;
+			}
+		</style>
+		<script>
+		
+		</script>
+	</head>
+	<body>
+		<div class="header"></div>
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+		<img src="../demo1/ggc.png" alt="">
+	</body>
+	<script>
+		let loding=document.querySelector('.header');
+		document.onreadystatechange=function(){
+				console.log(document.readyState);
+				if(document.readyState==='interactive'){
+				
+					loding.style.width=50+'%';
+				}
+				if(document.readyState==='complete'){
+					loding.style.width=100+'%';
+					setTimeout(()=>{
+						loding.style.display='none';
+					},1000)
+				}
+		}
+		let c=new File(["123"],'pp');
+		let url=URL.createObjectURL(c);
+		console.log(url);
+	</script>
+</html>

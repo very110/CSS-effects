@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			canvas {
+				border: 1px solid red;
+
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="500" height="500" id="ca"></canvas>
+	</body>
+</html>
+<script>
+	class str {
+		c
+		static b = 10;
+		constructor() {
+			this.b = 30;
+		}
+		get sing() {
+			console.log(x);
+		}
+
+
+	}
+
+	function p() {
+		console.log(ctx, x);
+	}
+	console.log(str.b += 10);
+	console.log(str.b);
+	console.log(new str().c);
+	let ca = document.querySelector('#ca');
+	let ctx = ca.getContext("2d");
+	let x = 10;
+	console.log(new str().sing);
+	ctx.beginPath()
+	ctx.save();
+	// ctx.moveTo(100, 100);
+	// ctx.moveTo(100, 100);
+	// ctx.lineTo(200, 100);
+	// ctx.stroke();
+	// ctx.lineTo(200, 200);
+	// ctx.stroke();
+
+	// ctx.beginPath()
+	// ctx.moveTo(0, 0);
+	// ctx.lineTo(100, 200);
+	// ctx.stroke();
+	ctx.translate(100, 0);
+	ctx.fillRect(0, 0, 100, 100);
+	ctx.restore()
+	ctx.translate(100, 0);
+	ctx.fillRect(0, 100, 100, 100);
+	ctx.fillStyle = "red";
+	ctx.arc(400, 300, 25, 0, Math.PI * 2);
+	ctx.fill()
+	// var linearGrad = ctx.createLinearGradient(0, 0, 200, 200);   //渐变线的起始坐标为(0,0)终止坐标为(800,600)
+	// linearGrad.addColorStop(0.0, '#000');    //第一个参数表示关键颜色的位置0表示起始位置,1表示终点位置,第二个参数表示关键颜色的颜色。
+	// linearGrad.addColorStop(1.0, '#fff');
+	// ctx.fillStyle = linearGrad;
+	// ctx.fillRect(100,100, 300, 200);
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		body {
+			width: 100vw;
+			height: 100vh;
+			background-color: black;
+
+		}
+
+		div {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			margin: 0 5px;
+			background-color: aqua;
+			display: inline-block;
+			box-shadow: 0 0 50px 5px #79bcec,
+				0 0 150px 5px #a6d2f6;
+			animation: hd 5s linear infinite;
+			animation-duration: calc(300s / var(--dia));
+			will-change: transform;
+		}
+
+		div:nth-child(even) {
+			background-color: #df208f;
+			box-shadow: 0 0 50px 5px #df208f,
+				0 0 150px 5px #df208f;
+		}
+
+		@keyframes hd {
+			0% {
+				transform: translateY(100vh) scale(0);
+			}
+
+			100% {
+				transform: translateY(-100vh) scale(1);
+			}
+		}
+	</style>
+	<body>
+	</body>
+</html>
+<script>
+	for (let i = 0; i < 10000; i++) {
+		let el = document.createElement('div');
+		let rander = Math.random() * 50 + 10;
+		el.style.setProperty('--dia', rander);
+		document.body.appendChild(el);
+	}
+
+	requestAnimationFrame(function add() {
+		let el = document.createElement('div');
+		let rander = Math.random() * 50 + 10;
+		el.style.setProperty('--dia', rander);
+		let cc = el.offsetTop;
+		document.body.appendChild(el);
+		requestAnimationFrame(add);
+	})
+	console.log(1123);
+</script>

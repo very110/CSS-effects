@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="800" height="600"></canvas>
+	</body>
+</html>
+<script>
+	const canvas = document.querySelector('canvas');
+	const ctx = canvas.getContext('2d');
+	let Rdeg = 0;
+	let Ldeg=0;
+	function loop() {
+		ctx.save()
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.beginPath()
+		ctx.arc(400, 300, 80, 0, Math.PI * 2);
+		ctx.fillStyle = '#e3fa14';
+		ctx.shadowColor = '#e3fa14';
+		ctx.shadowOffsetX = 0;
+		ctx.shadowBlur = 30;
+		ctx.fill();
+		ctx.closePath();
+
+
+		ctx.beginPath();
+		ctx.translate(400, 300);
+		ctx.rotate(Math.PI / 180 * (Rdeg+=0.6));//会即时记录当前中心点
+		ctx.translate(200,0)
+		ctx.arc(0, 0, 30, 0, Math.PI * 2);
+		ctx.shadowBlur = 0;
+		ctx.fillStyle = 'blue';
+		ctx.fill();
+		ctx.closePath();
+
+		ctx.beginPath();
+		ctx.rotate(Math.PI / 180 * (Ldeg+=2));
+		ctx.fillStyle = 'white';
+		ctx.arc(50, 0, 10, 0, Math.PI * 2);
+		ctx.fill()
+		ctx.closePath();
+
+
+		ctx.restore();
+
+
+
+		requestIdleCallback(loop);
+	}
+	requestAnimationFrame(loop);
+</script>

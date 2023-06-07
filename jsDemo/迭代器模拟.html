@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	let obj = {
+		name: 'gg',
+		age: 19,
+		addres: '北京',
+		[Symbol.iterator]: function() {
+			{
+				let index = 0;
+				let values = Object.values(obj);
+				console.log(this);
+				return {
+					next: () => {
+						if (index < values.length) {
+							return {
+								value: values[index++],
+								done: false
+							};
+						} else {
+							return {
+								value: undefined,
+								done: true
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+</script>

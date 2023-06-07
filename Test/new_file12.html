@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		
+		}
+		.wrapper{
+			position: relative;
+			width:min(300px,40vw);
+			height: 300px;
+			overflow-y: scroll;
+			background-color: red;
+			scroll-behavior: smooth;
+			
+		}
+		.wrapper div{
+			height: 800px;
+			background-color: aqua;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="wrapper"><div>123</div></div>
+</body>
+</html>
+<script>
+	window.onresize=(e)=>{
+		console.log(document.querySelector('.wrapper').scrollTop);
+		document.querySelector('.wrapper').scrollTo({
+			top:300, 
+		});
+	}
+</script>

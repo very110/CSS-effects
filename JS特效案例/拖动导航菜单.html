@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			width: 100vw;
+			height: 100vh;
+			background-color: #f0f2f5;
+			display: flex;
+
+			align-items: center;
+		}
+
+		.nav {
+			width: 90%;
+			height: 60px;
+			overflow: hidden;
+			box-shadow: 0 0 2px #ccc;
+			position: relative;
+		}
+
+		.list {
+			display: grid;
+			position: absolute;
+			grid-template-columns: repeat(39, 70px);
+			grid-template-rows: repeat(1, 60px);
+			grid-column-gap: 5px;
+			width: calc(39 * 70px + 38px * 5);
+			transition: all .2s ease-out;
+		}
+
+		.nav .list div {
+			background-color: white;
+			text-align: center;
+			line-height: 60px;
+			font-size: 14px;
+			user-select: none;
+		}
+
+		.nav .list div:hover {
+			color: #08f;
+			cursor: pointer;
+		}
+
+		.active {
+			color: #08f;
+		}
+	</style>
+	<body>
+		<div class="nav">
+			<div class="list">
+				<div class="active">教程</div>
+				<div>教程1</div>
+				<div>教程2</div>
+				<div>教程3</div>
+				<div>教程4</div>
+				<div>教程5</div>
+				<div>教程6</div>
+				<div>教程7</div>
+				<div>教程8</div>
+				<div>教程9</div>
+				<div>教程10</div>
+				<div>教程11</div>
+				<div>教程12</div>
+				<div>教程13</div>
+				<div>教程14</div>
+				<div>教程15</div>
+				<div>教程16</div>
+				<div>教程17</div>
+				<div>教程18</div>
+				<div>教程19</div>
+				<div>教程20</div>
+				<div>教程21</div>
+				<div>教程22</div>
+				<div>教程23</div>
+				<div>教程24</div>
+				<div>教程25</div>
+				<div>教程26</div>
+				<div>教程27</div>
+				<div>教程28</div>
+				<div>教程29</div>
+				<div>教程30</div>
+				<div>教程31</div>
+				<div>教程32</div>
+				<div>教程33</div>
+				<div>教程34</div>
+				<div>教程35</div>
+				<div>教程36</div>
+				<div>教程37</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	let list = document.querySelector('.list');
+	let nav = document.querySelector('.nav');
+
+	list.onmousedown = function(e) {
+		let navWidth = nav.offsetWidth;
+		let startX = e.pageX - list.offsetLeft;
+		let listWidth = list.offsetWidth;
+		list.onmousemove = function(e) {
+			let moveX = e.pageX - startX;
+			if (moveX > 0) {
+				moveX = 0
+			}
+			if (moveX < navWidth - listWidth) {
+				moveX = navWidth - listWidth;
+			}
+
+			list.style.marginLeft = moveX + 'px'
+		}
+		list.onmouseup = function(e) {
+			list.onmousemove = '';
+		}
+		list.onmouseleave = function() {
+			list.onmousemove = '';
+		}
+	}
+</script>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				display: flex;
+				justify-content: center;
+			}
+
+			ul {
+				position: relative;
+				margin: 0 auto;
+
+			}
+
+			ul li {
+				float: left;
+				width: 100px;
+				height: 40px;
+				background-color: tomato;
+				list-style: none;
+				text-align: center;
+				line-height: 40px;
+				cursor: pointer;
+			}
+
+
+
+			ul li:last-child::after {
+				content: '';
+				width: 100px;
+				height: 3px;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				background-color: blue;
+				transition: all .3s linear;
+			}
+
+
+			
+			ul li:nth-child(1){
+				background-color: bisque;
+			}
+			ul:hover li:nth-child(1){
+				background-color:red;
+			}
+			ul li:hover {
+				background-color: bisque !important;
+			}
+/* 
+			ul li:nth-child(1):hover~li.line::after {
+				left: 0;
+			}
+
+			ul li:nth-child(2):hover~li.line::after {
+				left: 100px;
+			}
+
+			ul li:nth-child(3):hover~li.line::after {
+				left: 200px;
+			}
+
+			ul li:nth-child(4):hover~li.line::after {
+				left: 300px;
+			}
+
+			ul li:nth-child(5):hover::after {
+				left: 400px;
+			} */
+
+			
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>菜单1</li>
+			<li>菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
+			<li class="line">菜单5</li>
+		</ul>
+		
+	</body>
+</html>
+<script>
+	// let a={};
+	// let b={
+	// 	a:1,
+	// 	b:2,
+	// 	c:3
+	// }
+	// let c={
+	// }
+	// let n=[1,2,3]
+	// a[b]=123;
+	// a[c]=456;
+	// a[n]=213
+	// console.log(a);
+	let arrb=new ArrayBuffer(12);
+	let vi=new Int16Array(arrb);
+	vi[0]=300;
+	vi[1]=400
+	let bi2=new Int16Array(arrb.slice(0,4))
+let blob=new Blob(['123123123']);
+console.log(blob.text());
+</script>

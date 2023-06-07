@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function obj(o) { //中转函数
+		function f() {};
+		f.prototype = o;
+		return new f();
+	}
+
+	function createObj(Animo, cat) { //寄生函数
+		let f = obj(Animo.prototype);
+		//这里和直接new Animo可不一样,因为new会实例出一个有数据的对象,我们需要的是一个空对象且__proto__是Animo.prototype
+	
+		f.constructor = cat;
+		cat.prototype = f;
+	}
+
+	
+	
+	function Animal(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	function cat(name, age) {
+		Animal.call(this, name, age);
+	}
+
+	Animal.prototype.run = function() {
+		console.log(this);
+	}
+	createObj(Animal, cat);
+	
+	cat.prototype.ca = function() {
+		console.log(this);
+	}
+	
+	let c = new cat('gg', 19);
+	function m(){
+		
+	}
+	m.prototype=new Animal();
+	m.prototype.constructor=m;
+	console.log(new m());
+	
+	console.dir(c);
+	
+</script>

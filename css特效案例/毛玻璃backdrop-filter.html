@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			.container {
+				width: 400px;
+				height: 400px;
+				background: url('../期末作业 星座介绍/img/20180601093720160.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center center;
+				/* p居中 */
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				perspective: 20px;
+			}
+
+			.container p {
+				padding: 40px 30px;
+				font-size: 24px;
+				border-radius: 12px;
+				background-color: rgba(46, 15, 200, .1);
+				backdrop-filter: blur(10px);
+				box-shadow: 0 0 10px #333;
+				transform: translateZ(-1px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<p>123123</p>
+		</div>
+	</body>
+</html>
+<script>
+	let a = 0.12;
+	console.log(a.toFixed(2));
+</script>

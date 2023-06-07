@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-image: linear-gradient(45deg, transparent, yellow);
+			}
+
+			button {
+				cursor: pointer;
+				position: relative;
+				border: none;
+				width: 200px;
+				height: 100px;
+				border-radius: 10%;
+				overflow: hidden;
+				background-image: linear-gradient(90deg, #0acffe, #495aff);
+			}
+
+			button span {
+				position: absolute;
+				background-color: rgba(0, 0, 0, 0.3);
+				animation: name .4s linear;
+				transform: translate(-50%, -50%);
+				border-radius: 50%;
+				width: 5px;
+				height: 5px;
+				opacity: 0;
+			}
+
+			@keyframes name {
+
+				100% {
+					opacity: 1;
+					transform: scale(80);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<button>点击</button>
+	</body>
+</html>
+<script>
+	let but = document.querySelector('button');
+	let li = document.createElement('span');
+
+	but.addEventListener('click', function(e) {
+		let x = e.pageX - e.target.offsetLeft;
+		let y = e.pageY - e.target.offsetTop;
+		li.style.left = x + 'px';
+		li.style.top = y + 'px';
+		this.appendChild(li);
+	})
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				width: 100vw;
+				height: 100vh;
+			}
+
+			.container {
+				height: 100%;
+				background-color: #333;
+				padding: 0 200px 0 150px;
+				box-sizing: border-box;
+			}
+
+			.colun {
+				position: relative;
+				float: left;
+				height: 100%;
+			}
+			.center{
+				width: 100%;
+				background-color: aqua;
+			}
+
+			.left {
+				left: -150px;
+				margin-left:-100%;
+				width: 150px;
+				background-color: red;
+			}
+
+			.right {
+				right: -200px;
+				margin-left: -200px;
+				width: 200px;
+				background-color: antiquewhite;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="colun center"></div>
+			<div class="colun left"></div>
+			<div class="colun right"></div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	let arr=['y', 'yx', 'yxx', 'yxxx', '-', 'M', 'M', '-', 'd', 'd', ' ', 'h', 'h', ':', 'm', 'm', ':', 's', 's'];
+	let reg=/[a-zA-Z]+/g;
+
+	arr.forEach((item)=>{
+		
+		if(reg.test(item)){
+			console.log(item,'真');
+		}else{
+			console.log(item,'假');
+		}
+		console.log(reg.lastIndex);
+	})
+</script>

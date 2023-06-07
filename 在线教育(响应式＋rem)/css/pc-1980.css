@@ -1,0 +1,10 @@
+html {
+	font-size: calc(1980px/12);
+}
+
+
+
+
+.pc-hidden {
+	display: none;
+}

@@ -1,0 +1,39 @@
+
+.to{
+	height:100px;
+	background-color: rgba(0,0,0,.4);
+	
+}
+.w{
+	width: 1200px;
+	margin: 0 auto;
+}
+.mg{
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+img{
+	width: 100%;
+	
+}
+.to ul li:nth-child(1){
+	margin-left: 100px;
+}
+.to ul li{
+	margin-left: 75px;
+	float: left;
+	width: 80px;
+	height: 100px;
+	text-align: center;
+}
+.to ul li a{
+	display: block;
+	width: 80px;
+	
+	color:#FFFFFF;
+	font-size: 20px;
+	line-height: 100px;
+}

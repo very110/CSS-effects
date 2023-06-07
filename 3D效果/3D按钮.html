@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wapper {
+        position: relative;
+        perspective: 3000px;
+        transform-style: preserve-3d;
+        width: 120px;
+        height: 39px;
+        margin: 100px auto;
+        transition: all 0.3s linear;
+      }
+
+      .front,
+      .last {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 39px;
+        color: aliceblue;
+        background-color: royalblue;
+      }
+
+      .front {
+        transform: translateZ(12px);
+      }
+
+      .last {
+        transform: rotateX(90deg) translateZ(20px);
+      }
+
+      .wapper:hover {
+        transform: rotateX(-90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wapper">
+      <div class="front">hello</div>
+      <div class="last">world</div>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  let str = "hello worldllo";
+
+  console.log();
+  for (let a of str.matchAll(/(?<人>l)lo/g)) {
+    console.log(a);
+  }
+</script>

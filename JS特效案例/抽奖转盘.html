@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="在线培训,智慧教育">
+
+		<title></title>
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.outer,
+			.wapper {
+				position: relative;
+				width: 300px;
+				height: 300px;
+				background-color: aqua;
+				overflow: hidden;
+				border-radius: 50%;
+			}
+
+			.wapper {
+				transform: rotate(22deg);
+			}
+
+			.left,
+			.right {
+				position: absolute;
+				width: 150px;
+				height: 100%;
+				overflow: hidden;
+			}
+
+			.left {
+				left: 0;
+				background-color: black;
+			}
+
+			.right {
+				right: 0;
+				background-color: rebeccapurple;
+			}
+
+			.left>div,
+			.right>div {
+				position: absolute;
+				width: 150px;
+				height: 100%;
+			}
+
+			.left div {
+				transform-origin: right center;
+			}
+
+			.left .one {
+				background-color: #ff8780;
+			}
+
+			.left .two {
+				background-color: #fe9a60;
+				transform: rotate(-50deg);
+			}
+
+			.left .three {
+				background-color: #ff8780;
+				transform: rotate(-90deg);
+			}
+
+			.left .four {
+				background-color: #fe9a60;
+				transform: rotate(-130deg);
+			}
+
+			.right .one {
+				background-color: #fe9a60;
+			}
+
+			.right .two {
+				background-color: #ff8780;
+				transform: rotate(50deg);
+			}
+
+			.right .three {
+				background-color: #fe9a60;
+				transform: rotate(90deg);
+			}
+
+			.right .four {
+				background-color: white;
+				transform: rotate(130deg);
+			}
+
+			.right div {
+				width: 150px;
+				height: 100%;
+				transform-origin: left center;
+			}
+
+			.left .text {
+				position: absolute;
+				left: 50%;
+				top: 30px;
+				transform: rotate(-30deg);
+				line-height: 100%;
+			}
+
+			.right .text {
+				position: absolute;
+				left: 15%;
+				top: 20px;
+				transform: rotate(25deg);
+
+			}
+
+			.circle {
+				position: absolute;
+				width: 30%;
+				height: 80px;
+				text-align: center;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 30px;
+				background-color: #fd8629;
+				border-radius: 50%;
+				line-height: 80px;
+				user-select: none;
+			}
+
+			.circle::after {
+				position: absolute;
+				content: '';
+				left: 50%;
+				top: -30%;
+				transform: translate(-50%, -50%);
+				border: 20px solid black;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-top-color: transparent;
+				border-left-width: 10px;
+				border-right-width: 10px;
+				border-bottom-width: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="wapper">
+				<div class="left">
+					<div class="one">
+						<span class='text'></span>
+					</div>
+					<div class="two"> <span class='text'></span></div>
+					<div class="three"> <span class='text'></span></div>
+					<div class="four"> <span class='text'></span></div>
+				</div>
+				<div class="right">
+					<div class="one"> <span class='text'></span></div>
+					<div class="two"> <span class='text'></span></div>
+					<div class="three"> <span class='text'></span></div>
+					<div class="four"> <span class='text'></span></div>
+				</div>
+			</div>
+			<div class="circle">
+				抽奖
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	let circle = document.querySelector('.circle');
+	let textAll = document.querySelectorAll('.text');
+	let wapper = document.querySelector('.wapper');
+	let textArr = ['一等奖', '二等奖', '三等奖', '优秀奖', '二等奖',
+		'三等奖', '一等奖', '没获奖'
+	]
+	let weight = [1, 5, 15, 45, 50, 55, 56, 100]; //1到5之间是下标1,5到15是下标2
+	for (let i = 0; i < textAll.length; i++) {
+		textAll[i].textContent = textArr[i];
+	}
+	let timer = null;
+	let flag = true;
+	circle.onclick = function() {
+		if (flag) {
+			flag = false;
+			let random = parseInt(Math.random() * 100);
+			console.log(random);
+			let randomweight = weight.concat(random);
+			let aa = randomweight.sort((a, b) => a - b);
+			random = aa.indexOf(random);
+			let text = textArr[random];
+			let con = 40 * random <= 160 ? random * 40 : 160;
+			let deg = con + (random < textArr.length / 2 ? 0 : 180 - random % (textArr.length / 2) * 30 - 45);
+			console.log(random);
+			run(deg, text);
+			console.log(text);
+			weight.splice(random, 1);
+		}
+	}
+
+	async function run(deg, text) {
+		let speed = 22;
+		let dee = 0;
+
+		await new Promise((r, s) => {
+
+			timer = setInterval(() => {
+				if (dee > 1800) {
+					r('10');
+					clearInterval(timer)
+					return;
+				}
+				dee += 20;
+				wapper.style.transform = `rotate(${dee}deg)`;
+			}, 20)
+		})
+
+		timer = setInterval(() => {
+			if (speed >= deg + 22) {
+				flag = true;
+				clearInterval(timer);
+			}
+			wapper.style.transform = `rotate(${speed}deg)`;
+			speed += 2;
+		}, 20)
+
+	}
+</script>

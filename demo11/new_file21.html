@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+
+
+			.c {
+				width: 100px;
+				height: 200px;
+				background-color: red;
+				translate: 15px;
+				margin-top: 20%;
+			}
+
+			.a {
+				top: 0;
+				position: fixed;
+				width: 100px;
+				height: 200px;
+				background-color: pink;
+			}
+
+			.z {
+				width: 100px;
+				height: 100px;
+				background-color: gold;
+				transform: translateX(50px) rotate(45deg);
+				animation: adjust 1s linear forwards;
+				animation-composition: add;
+			}
+
+			@keyframes adjust {
+				to {
+					transform: translateX(100px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="c">
+			<div class="a"></div>
+		</div>
+
+		<div class="z"></div>
+	</body>
+</html>
+<script>
+</script>

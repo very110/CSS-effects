@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+
+			ul {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+
+
+
+			/* ul li:nth-child(2) {
+				transform: rotate(6deg);
+			} */
+
+			.chassie ul li {
+				position: absolute;
+				left: 50%;
+				top: 10px;
+				background-color: black;
+				transform: translate(-50%);
+				width: 4px;
+				height: 10px;
+				transform-origin: center 240px;
+			}
+
+			.chassie ul li::after {
+				position: absolute;
+				content: attr(data-house);
+				top: 8px;
+				font-size: 40px;
+				font-weight: bold;
+				text-indent: -0.5em;
+			}
+
+
+			body {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.chassie {
+				position: relative;
+				width: 500px;
+				height: 500px;
+				background-color: white;
+				border-radius: 50%;
+				border: 10px solid #93D9E8;
+				box-shadow: inset 0px 0 2px 5px #98c3c9;
+			}
+
+			.circle,
+			.house,
+			.second,
+			.minute {
+				position: absolute;
+				transform-origin: center bottom;
+				background-color: black;
+			}
+
+			.circle {
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.house {
+				width: 15px;
+				height: 70px;
+				left: calc(50% - 7px);
+				top: calc(50% - 70px);
+				border-radius: 50%;
+			}
+
+			.minute {
+				width: 10px;
+				height: 90px;
+				border-radius: 50%;
+				left: calc(50% - 5px);
+				top: calc(50% - 90px);
+			}
+
+			.second {
+				width: 3px;
+				height: 120px;
+				left: calc(50% - 1.5px);
+				top: calc(50% - 120px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="chassie">
+			<ul>
+			</ul>
+			<div class="circle"></div>
+			<div class="house"></div>
+			<div class="minute"></div>
+			<div class="second"></div>
+		</div>
+	</body>
+</html>
+<script>
+	let house = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	let index = 0;
+	let ul = document.querySelector('.chassie ul');
+	let style = document.createElement('style');
+	style.type = 'text/css';
+
+	document.head.append(style);
+	for (let i = 0; i < 60; i++) {
+		let li = document.createElement('li');
+		if (i % 5 === 0) {
+			li.style.width = 8 + 'px';
+			li.style.height = 12 + 'px';
+			li.dataset['house'] = house[index++];
+			if (index > 6) {
+				style.innerHTML += `.chassie ul li:nth-of-type(${i+1})::after{
+					margin-top: 10px;
+					transform:rotate(${-i*6}deg);
+				}`;
+			} else {
+				style.innerHTML += `.chassie ul li:nth-of-type(${i+1})::after{
+					transform:rotate(${-i*6}deg);
+				}`;
+			}
+		} else {
+			li.style.width = 4 + 'px';
+			li.style.height = 10 + 'px';
+		}
+		li.style.transform = `rotate(${i*6}deg)`
+		ul.append(li);
+	}
+
+	let housesDom = document.querySelector('.house')
+	let minuteDom = document.querySelector('.minute')
+	let secondDom = document.querySelector('.second')
+
+	function run() {
+		let now = new Date();
+		let house = now.getHours();
+		let minute = now.getMinutes();
+		let second = now.getSeconds();
+
+		housesDom.style.transform = `rotate(${house*30+minute/2}deg)`
+		minuteDom.style.transform = `rotate(${minute*6}deg)`;
+		secondDom.style.transform = `rotate(${second*6}deg)`;
+		setTimeout(run, 1000);
+	}
+	run()
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			p {
+				width: 600px;
+				font-size: 24px;
+				line-height: 30px;
+			}
+
+			span {
+				font-size: 24px;
+				color: transparent;
+				background: linear-gradient(90deg, #0cc, #0cc),
+					linear-gradient(90deg, #fc0, #fc0);
+				;
+				background-size: 100% 100%, 0% 100%;
+				line-height: 10px;
+				background-repeat: no-repeat;
+				background-position: 100% 100%, 0% 100%;
+				-webkit-background-clip: text;
+			}
+
+			button:focus~span {
+				opacity: 1;
+				line-height: 30px;
+				background-size: 0 100%, 100% 100%;
+				transition: background-size 7.5s, line-height .2s linear, opacity 1s;
+			}
+		</style>
+	</head>
+	<body>
+		<button>请点坤</button>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> <span>Mollitia nostrum placeat consequatur
+			deserunt
+			velit ducimus possimus commodi temporibus debitis quam</span>
+		<p>, molestiae laboriosam sit repellendus sed
+			sapiente quidem quod accusantium vero.</p>
+	</body>
+
+</html>

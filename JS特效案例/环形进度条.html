@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.circle {
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				background-color: #979797;
+				position: relative;
+			}
+
+			.left,
+			.right {
+				width: 100px;
+				height: 200px;
+				position: absolute;
+				overflow: hidden;
+			}
+
+			.left-circle {
+				width: 100px;
+				height: 200px;
+				border-top-left-radius: 100px;
+				border-bottom-left-radius: 100px;
+				background-color: red;
+				transform-origin: right center;
+				transform: rotate(180deg);
+				/* animation: dei1 2s linear forwards; */
+				transition: all .3s;
+				/* animation-delay: 2s; */
+			}
+
+			.right {
+				right: 0;
+			}
+
+			.right-circle {
+				width: 100px;
+				height: 200px;
+				background-color: red;
+				border-top-right-radius: 100px;
+				border-bottom-right-radius: 100px;
+				transform-origin: left center;
+				transition: all .3s;
+				transform: rotate(-180deg);
+				/* animation: dei2 2s linear forwards; */
+			}
+
+			.ineer {
+				width: 180px;
+				height: 180px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				color: #979797;
+				border-radius: 50%;
+				font-size: 30px;
+				background-color: #ffffff;
+				transform: translate(-50%, -50%);
+				text-align: center;
+				line-height: 180px;
+				z-index: 999;
+			}
+
+			@keyframes dei1 {
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			@keyframes dei2 {
+				100% {
+					transform: rotate(0deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="circle">
+			<div class="left">
+				<div class="left-circle"></div>
+			</div>
+			<div class="right">
+				<div class="right-circle"></div>
+			</div>
+			<div class="ineer">100%</div>
+		</div>
+	</body>
+</html>
+<script>
+	let ineer = document.querySelector('.ineer');
+	let left = document.querySelector('.left-circle');
+	let right = document.querySelector('.right-circle');
+	let locat = 0;
+	let total = 100;
+	let timer = null;
+	timer = setInterval(() => {
+		let num = ((locat / total) * 100).toFixed(1);
+		let deg = ((locat / total) * 360);
+		locat++;
+		ineer.textContent = num + '%';
+		if (num >= 100) {
+			clearInterval(timer);
+		}
+
+		if (deg > 180) {
+			left.style.transform = `rotate(${deg}deg)`;
+		} else {
+			right.style.transform = `rotate(${-180+deg}deg)`;
+		}
+	}, 100)
+	console.log([1,2,3,4,5]+"");
+</script>

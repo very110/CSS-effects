@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: yellow;
+			}
+
+			.box {
+				position: relative;
+				width: 446px;
+				height: 314px;
+				overflow: hidden;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				transition: all .3s linear;
+			}
+
+			.box:hover img {
+				transform: scale(1.1);
+			}
+
+			.box::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background-image: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, .0));
+				opacity: 0;
+			}
+
+			.box:hover::after {
+				opacity: 1;
+			}
+
+			.box .info {
+				position: absolute;
+				left: 20px;
+				bottom: -20px;
+				color: white;
+				z-index: 999;
+				transition: all .3s linear;
+			}
+
+			.info .more {
+				margin-top: 10px;
+			}
+
+			.box:hover .info {
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F1102%2Fb2aabf4dj00r1x98u000wd200hs00b6g00hs00b6.jpg&thumbnail=660x2147483647&quality=80&type=jpg"
+				alt="">
+			<div class="info">
+				<p>前岩探索</p>
+				<p>通井6G无限新岑</p>
+				<p class="more">了解更多</p>
+			</div>
+		</div>
+
+	</body>
+</html>
+<script>
+	class st{
+		constructor(){
+			console.log(1);
+			return {};
+		}
+	}
+	console.log(new st());
+</script>

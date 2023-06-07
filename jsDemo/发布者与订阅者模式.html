@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	// 发布订阅是一个一对多的关系,如发布者发布一条消息那么所有的订阅者都会收到此消息
+	// sub方法是订阅
+	class Pubsub {
+		#callback = {
+
+			// '频道':{}
+		};
+		//$on
+		sub(type, cb, subid) {
+			if (arguments.length < 2) throw Error("必须传入频道");
+			let id = 'token_' + Number.parseInt((Math.random() * 0xFFFFFF)).toString(16);
+			if (this.#callback[type]) {
+				this.#callback[type][(subid ? subid : id)] = cb;
+			} else {
+				this.#callback[type] = {
+					[(subid ? subid : id)]: cb
+				}
+			}
+			return (subid ? subid : id);
+		}
+		//发布 $emit
+		publish(type, data) {
+			if (this.#callback[type]) {
+				let callbackValues = Object.values(this.#callback[type]);
+				callbackValues.forEach(item => {
+					item(data);
+				})
+			} else {
+				alert('这个频道还没有人订阅');
+			}
+		}
+		//删除
+		cannle(type) {
+			if (typeof type === 'undefined') {
+				this.#callback = {}
+			}
+			if (typeof type === 'string') {
+				if (type.includes('token')) {
+					Object.values(this.#callback).forEach(val => {
+						Reflect.deleteProperty(val, type);
+					})
+				} else {
+					delete this.#callback[type];
+				}
+			}
+
+		}
+
+
+	}
+	let pubsub = new Pubsub();
+	pubsub.sub('class1', function(data) {
+		console.log(data, '1');
+	});
+	pubsub.sub('class1', function(data) {
+		console.log(data, '1');
+	});
+	pubsub.sub('class2', function(data) {
+		console.log(data);
+	});
+	pubsub.sub('class3', function(data) {
+		console.log(data);
+	});
+	let id = pubsub.sub('class4', function(data) {
+		console.log(data);
+	});
+	pubsub.sub('class3', function(data) {
+		console.log(data);
+	}, id);
+	pubsub.publish('class1', '666')
+
+	console.log(pubsub);
+</script>

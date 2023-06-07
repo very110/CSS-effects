@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 100vw;
+			height: 300px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#bg{
+			position: absolute;
+			box-shadow: 0 0 10px red;
+		}
+	</style>
+	<body>
+			<canvas width="800" height="600" id="bg"></canvas>
+	</body>
+</html>
+<script src="./js/bg.js"></script>
+<script>
+	function getE(selection){
+		return document.querySelector(selection);
+	}
+
+	function clearReat(canvas){
+		let ctx=canvas.getContext('2d');
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+	}
+
+	const bg=new Bg(getE('#bg'),50);
+
+</script>

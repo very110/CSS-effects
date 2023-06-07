@@ -1,0 +1,12 @@
+{
+  "editor.fontVariations": false,
+  "editor.fontLigatures": false,
+  "css.styleSheets": [],
+  "html-to-css-autocompletion.triggerCharacters": false,
+  "workbench.commandPalette.preserveInput": true,
+  "workbench.editorAssociations": {
+    "editor.parameterHints": " true",
+    "editor.quickSuggestions": "{ “other”: true, “comments”: true, “strings”: true}"
+  },
+  "livePreview.defaultPreviewPath": "/3D效果/3D阳光玻璃房/index.html"
+}

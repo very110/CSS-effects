@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="keywords" content="在线培训,智慧教育">
+		<meta name="description" content="提供在线教育解决方案">
+		<title>某某在线教育有限公司</title>
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/element.css">
+
+	</head>
+	<body>
+		<div class="container" >
+			<div class="header s480-hidden">
+				<ul>
+					<li>Brand</li>
+					<li>link</li>
+					<li>link</li>
+					<li class="sanjiao">Dropdown link</li>
+					<li class="search"><input type="text" placeholder="search"></li>
+					<li class="button">search</li>
+					<li class="right"></li>
+					<li style="color: white;">link</li>
+					<li class="sanjiao">Dropdown link</li>
+				</ul>
+			</div>
+			<div class="sz s480-black" style="display: none;" >
+					<h3>Navbar</h3>
+					<div class="menu">
+						<div class="sang">
+							<div class="sangs">
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>
+					<div class="tex">
+						<p>home</p>
+						<p>Feayuers</p>
+						<p>picing</p>
+						<el-menu>
+							<el-submenu>
+								<template slot="title">Dropdown link</template>
+								<el-menu-item index="2-1">选项1</el-menu-item>
+								<el-menu-item index="2-2">选项2</el-menu-item>
+								<el-menu-item index="2-3">选项3</el-menu-item>
+							</el-submenu>
+						</el-menu>
+					</div>
+				</div>
+			
+			<div class="swiper">
+				<el-carousel :interval="5000" arrow="always">
+					<el-carousel-item v-for="item in 3" :key="item" class="swp">
+						<div class="bg">
+							<div class="txt">
+								<h2>Lorem ipsum dolor sit amet</h2>
+								<p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+									magna aliqua.</p>
+							</div>
+						</div>
+					</el-carousel-item>
+				</el-carousel>
+			</div>
+			<div class="card">
+				<el-row :gutter="20">
+					<el-col xs="24" :sm="8">
+						<div class="card-item">
+							<div class="img">
+								<img src="https://img2.baidu.com/it/u=2218443973,3224745759&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+									alt="">
+							</div>
+							<h4>Lorem ipsum dolor</h4>
+							<p>onsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+								magna aliqua.</p>
+							<div class="button">
+								action
+							</div>
+							<div class="button">
+								action
+							</div>
+
+						</div>
+
+					</el-col>
+					<el-col xs="24" :sm="8">
+						<div class="card-item">
+							<div class="img">
+								<img src="https://img2.baidu.com/it/u=2218443973,3224745759&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+									alt="">
+							</div>
+							<h4>Lorem ipsum dolor</h4>
+							<p>onsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+								magna aliqua.</p>
+							<div class="button">
+								action
+							</div>
+							<div class="button">
+								action
+							</div>
+
+						</div>
+
+					</el-col>
+					<el-col xs="24" :sm="8">
+						<div class="card-item">
+							<div class="img">
+								<img src="https://img2.baidu.com/it/u=2218443973,3224745759&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+									alt="">
+							</div>
+							<h4>Lorem ipsum dolor</h4>
+							<p>onsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+								magna aliqua.</p>
+							<div class="button">
+								action
+							</div>
+							<div class="button">
+								action
+							</div>
+
+						</div>
+
+					</el-col>
+				</el-row>
+				<el-row :gutter="20">
+					<el-col :xs="24" :sm="8">
+						<div class="left-box">
+							<div class="img"><img src="../期末作业 星座介绍/img/1-15032315250U18.jpg" alt=""></div>
+							<div class="cc">
+								<h4>Lorem ipsum dolor sit amet</h4>
+								<p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+									magna aliqua.</p>
+								<div class="gg">
+									<div class="img"><img src="../期末作业 星座介绍/img/1-15032315250U18.jpg" alt="">
+									</div>
+									<div class="jj">
+										<h4>Lorem ipsum dolor sit amet</h4>
+										<p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</el-col>
+					<el-col :xs="24" :sm="8">
+						<div class="centen-box">
+							<div>Home</div>
+							<div>Home</div>
+							<div>Home</div>
+							<div>Home</div>
+							<div>Home <span style="display: inline-block; width: 80%;text-align:right;">14</span></div>
+						</div>
+					</el-col>
+					<el-col :xs="24" :sm="8">
+						<ul class="list">
+							<li>Lorem ipsum dolor sit amet</li>
+							<li>Consectetur adipiscing elit</li>
+							<li>Integer molestie lorem at massa</li>
+							<li>Facilisis in pretium nisl aliquet</li>
+							<li>Nulla volutpat aliquam velit</li>
+							<li>
+								Faucibus porta lacus fringilla vel</li>
+							<li>Aenean sit amet erat nunc</li>
+							<li>Eget porttitor lorem</li>
+						</ul>
+					</el-col>
+				</el-row>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="./js/vue.min.js"></script>
+<script src="./js/element.js"></script>
+<script>
+	new Vue({
+		el: '.container',
+	})
+	let sz = document.querySelector('.menu');
+	let sq = document.querySelector('.tex');
+	sz.onclick = function() {
+		sq.classList.toggle('hidden');
+	}
+	
+</script>

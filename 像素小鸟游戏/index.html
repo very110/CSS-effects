@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#bg {
+				border: 1px solid red;
+			}
+
+			#fl {
+				position: absolute;
+				z-index: -1;
+			}
+
+			#role {
+				position: absolute;
+			}
+
+			.aniw {
+				animation: optiy 0.4s linear infinite alternate;
+			}
+
+			#ready {
+				position: absolute;
+				cursor: pointer;
+
+			}
+
+			#ready:hover {
+				transform: scale(1.2);
+			}
+
+			#pole {
+				position: absolute;
+				z-index: -1;
+			}
+
+			#life {
+				position: absolute;
+				z-index: -1;
+			}
+
+			@keyframes optiy {
+				from {
+					opacity: 1;
+				}
+
+				to {
+					opacity: 0.3;
+				}
+			}
+
+			#frac {
+				position: absolute;
+				z-index: -1;
+			}
+
+			#hero {
+				position: absolute;
+				z-index: 11;
+				border-radius: 10%;
+				display: none;
+				background-image: linear-gradient(#BB4E75, #FF9D6C);
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="1000" height="700" id="bg"></canvas>
+		<canvas width="1000" height="700" id="fl"></canvas>
+		<canvas width="1000" height="700" id="role"></canvas>
+		<canvas width="488" height="225" id="ready"></canvas>
+		<canvas width="1000" height="700" id="pole"></canvas>
+		<canvas width="1000" height="700" id="life"></canvas>
+		<canvas width="1000" height="700" id="frac"></canvas>
+		<canvas width="400" height="500" id="hero"></canvas>
+	</body>
+</html>
+<script src="./js/bg.js"></script>
+<script src="./js/floor.js"></script>
+<script src="./js/role.js"></script>
+<script src="./js/ready.js"></script>
+<script src="./js/pole.js"></script>
+<script src="./js/life.js"></script>
+<script src="./js/frac.js"></script>
+<script src="./js/hero.js"></script>
+<script>
+	let sta = 0;
+	window.times = [];
+	let bgcan = document.querySelector('#bg');
+	let bglf = document.querySelector('#fl');
+	let bgrole = document.querySelector('#role');
+	let bgready = document.querySelector('#ready');
+	let bgPoel = document.querySelector('#pole'); 
+	let bglife = document.querySelector('#life');
+	let bgFrac = document.querySelector('#frac');
+	let bghero = document.querySelector('#hero');
+	const fl = new Floor(32, 128, bglf, 0, 650);
+	const bg = new bgound(bgcan, 5);
+	const role = new Role(86, 66, 100, bgrole.height / 2 - 33, bgrole, 100);
+	const life = new Life(50, 20, 43, 43, bglife, roleLife);
+	const ready = new Ready(0, 0, 488, 125, bgready);
+	const hero = new Hero(bghero)
+	bg.move();
+	fl.move();
+	hero.draw();
+	bgready.onclick = function(e) {
+		console.log(e.clientX)
+		console.log(e.clientY)
+		if (e.clientX >= 844 && e.clientX <= 844 + 104 && e.clientY >= 375 && e.clientY <= 375 + 38) { //加上图片本身的高度
+			bghero.style.display = 'block';
+			hero.draw();
+			bghero.onmouseout = function() {
+				this.style.display = 'none';
+			}
+			return;
+		}
+		ready.ctx.clearRect(0, 0, this.width, this.height);
+		if (!sta) {
+			role.start();
+			const frac = new Frac(bgFrac);
+			const poles = new Poles(bgPoel, roleSeat, life, bgrole, ready, clearImg, frac);
+			frac.start();
+		} else {
+			window.location.assign(location.href);
+		}
+		sta = 1;
+		bgPoel.style.zIndex = 1;
+		bglife.style.zIndex = 1;
+		bgFrac.style.zIndex = 1;
+	};
+
+	function roleSeat() {
+		return role;
+	}
+
+	function roleLife() {
+		return role.life;
+	}
+
+	function clearImg(frac) {
+		bgPoel.style.zIndex = -1;
+		bglife.style.zIndex = -1;
+		bgFrac.style.zIndex = -1;
+		role.ctx.clearRect(0, 0, 1000, 1000);
+		life.ctx.clearRect(0, 0, 1000, 1000);
+	}
+</script>

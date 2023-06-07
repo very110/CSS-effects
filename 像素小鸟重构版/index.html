@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		#bg {
+			position: absolute;
+			box-shadow: 0 0 10px;
+		}
+
+		canvas {
+			position: absolute;
+		}
+
+		.ready {
+			position: absolute;
+			background: url("./image/get_ready.png") no-repeat, url("./image/ok.png") no-repeat, url("./image/share.png") no-repeat;
+			background-position: 0 0, left bottom, right bottom;
+			background-size: 466px 118px, 214px 76px, 214px 76px;
+			width: 460px;
+			height: 198px;
+
+		}
+
+		.ready:hover {
+			transform: scale(1.2);
+			cursor: pointer;
+		}
+
+		.anim {
+			animation: role 1s linear infinite;
+		}
+
+		@keyframes role {
+			100% {
+
+				opacity: 0.3;
+			}
+		}
+
+		.mianban {
+			position: absolute;
+			top: 750px;
+			height: 200px;
+			width: 1000px;
+			background-color: red;
+		}
+
+		h3 {
+			font-size: 30px;
+			text-align: center;
+		}
+
+		ol li {
+			font-size: 20px;
+			margin-left: 30px;
+		}
+
+		.gg {
+			width: 700px;
+			height: 1000px;
+		}
+	</style>
+	<body>
+
+
+		<div class="gg">
+			<canvas width="700" height="1000" id="bg"></canvas>
+			<canvas width="700" height="1000" id="role"></canvas>
+			<canvas width="700" height="1000" id="pole"></canvas>
+			<canvas width="700" height="1000" id="life"></canvas>
+			<canvas width="700" height="1000" id="fraction"></canvas>
+		</div>
+		<div class="ready"></div>
+		<div class="mianban">
+			<h3>排行榜</h3>
+			<ol>
+
+			</ol>
+		</div>
+
+
+	</body>
+</html>
+<script src="./js/bg.js"></script>
+<script src="./js/role.js"></script>
+<script src="./js/pole.js"></script>
+<script src="./js/life.js"></script>
+<script src="./js/fraction.js"></script>
+<script>
+	window.timers = []
+
+	function start() {
+		const role = new Role(getE('#role'), 86, 66);
+		const life = new Life(getE('#life'), role);
+		const fraction = new Fraction(getE('#fraction'))
+
+		const pole = new ManagePoles(getE('#pole'), role, life, fraction);
+	}
+
+	function getE(selection) {
+		return document.querySelector(selection);
+	}
+
+	function clearCanvas(canvas) {
+		let ctx = canvas.getContext('2d');
+		return ctx.clearRect(0, 0, canvas.width, canvas.height);
+	}
+
+	function getImg(src) {
+		let img = new Image();
+		img.src = src;
+		return img;
+	}
+
+	getE('.ready').addEventListener('click', function() {
+		this.style.display = 'none';
+		start();
+	})
+	const bg = new Bg(getE('#bg'));
+
+	function over() {
+		var getLocas = JSON.parse(localStorage.getItem('hero')).sort((a, b) => b.fraction - a.fraction);
+		getE('ol').innerHTML = `
+		${getLocas.map((item,index)=>{
+			return index<5?`<li>${item.name} 分数:${item.fraction}</li>`:undefined
+		}).filter(Boolean).join('')}
+	`;
+	}
+	over()
+</script>

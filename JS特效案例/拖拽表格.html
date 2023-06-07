@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				width: 100vw;
+				height: 100vh;
+			}
+
+			.back {
+				background-color: aqua;
+			}
+
+			.table {
+				display: flex;
+				flex-wrap: wrap;
+				align-content: start;
+				padding: 15px;
+				position: relative;
+				width: 800px;
+				height: 575px;
+				background-color: #edeced;
+			}
+
+			.table .thead {
+				display: flex;
+				width: 100%;
+				height: 50px;
+			}
+
+			.table div:not(.bottom, .left) {
+
+				margin: 1px 1px 0 0px;
+			}
+
+			.th {
+				background-color: #c5c3c5;
+			}
+
+			.table>div:not(.left, .bottom, .addTypeList) {
+				margin-left: 30px;
+			}
+
+			.box {
+				margin-top: 0 !important;
+				line-height: 50px;
+				text-align: center;
+				width: calc(100% / 7);
+				height: 50px;
+				border: 1px solid #7f7e82;
+			}
+
+			.table .tr {
+				width: 100%;
+				display: flex;
+			}
+
+			.table .tr .box {
+				padding: 10px;
+			}
+
+			.left {
+				top: 67px;
+
+			}
+
+			.bottom {
+				bottom: 42px;
+			}
+
+			.aside {
+				left: 12px;
+				position: absolute;
+				width: 30px;
+				height: 203px;
+				background-color: #c5c3c5;
+				display: flex;
+				align-items: center;
+			}
+
+
+
+			.wapeer {
+				position: relative;
+				width: 100%;
+				display: flex;
+				font-weight: 600;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.addTypeList .Type {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 82px;
+				height: 38px;
+				font-size: 19px;
+				margin-top: 6px;
+				background-color: var(--color, red);
+			}
+
+			.addTypeList {
+				margin: 0 !important;
+				position: absolute;
+				height: 100%;
+				width: 92px;
+				padding: 0 5px;
+				left: 0%;
+				top: 0%;
+				transform: translateX(-110%);
+				background-color: #edeced;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wapeer">
+
+			<h2 style="margin-bottom: 20px;">课程表</h2>
+			<div class="table">
+				<div class="addTypeList">
+					<div class="Type" draggable="true" data-effect='copy'>语文 </div>
+					<div class="Type" draggable="true" data-effect='copy'>数学</div>
+					<div class="Type" draggable="true" data-effect='copy'>物理</div>
+					<div class="Type" draggable="true" data-effect='copy'>化学</div>
+					<div class="Type" draggable="true" data-effect='copy'>生物</div>
+					<div class="Type" draggable="true" data-effect='copy'>地理</div>
+					<div class="Type" draggable="true" data-effect='copy'>政治</div>
+				</div>
+				<div class="left box aside">上午</div>
+				<div class="bottom box aside">下午</div>
+				<div class="thead">
+					<div class="th box">星期1</div>
+					<div class="th box">星期2</div>
+					<div class="th box">星期3</div>
+					<div class="th box">星期4</div>
+					<div class="th box">星期5</div>
+					<div class="th box">星期6</div>
+					<div class="th box">星期7</div>
+				</div>
+				<div class="tr">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div class="tr">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div class="tr">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div class="tr">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div class="tr" style="margin-top: 60px;">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div class="tr">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div class="tr">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div class="tr">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+</html>
+<script>
+	let Types = document.querySelectorAll('.Type');
+	const randomColor = () => {
+		let random = Math.random();
+		return '#' + random.toString(16).slice(2, 8).padEnd(6, '0')
+	}
+	for (let i = 0; i < Types.length; i++) {
+		Types[i].style.setProperty('--color', randomColor());
+	}
+</script>
+<script>
+	function jieliu(cb, time) {
+		let flag = true;
+		return function(...a) {
+			if (flag) {
+				flag = false;
+				setTimeout(() => {
+					cb.apply(this, a);
+					flag = true;
+				}, time)
+			}
+		}
+	}
+
+
+	let addTypeList = document.querySelector('.table');
+	addTypeList
+	addTypeList.ondragstart = function(e) {
+
+		e.dataTransfer.effectAllowed = e.target.dataset.effect;
+		console.log(e.target, 'start');
+	}
+	addTypeList.ondragover = function(e) {
+		e.preventDefault();
+
+	}
+
+	addTypeList.ondragenter = function(e) {
+		console.log(e.target, 'enter');
+		console.log(e.target.contains(e.target));
+	}
+	addTypeList.ondrop = (e) => {
+		console.log(e.target, 'drop');
+	}
+	new FileReader().r
+</script>

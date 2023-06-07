@@ -1,0 +1,73 @@
+body{
+	background: url(../img/0a13188055e512295cf90d5cf1c7614c.jpg);
+	background-attachment: fixed;
+	background-size: 100% auto;	
+}
+.ge{
+	background-color: #FFFFFF;
+}
+ul{
+	overflow: hidden;
+	
+}
+.ge ul li{
+
+	margin:30px 100px 20px 160px;
+	float: left;
+	overflow: hidden;
+	position: relative;
+	width: 300px;
+	height: 300px;
+	
+}
+img{
+	width: 100%;
+	
+}
+
+.bak{
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 60%;
+	transform: translate(-50%,-50%);
+	width: 49px;
+	height: 49px;
+	background: url(../img/cover_play@2x.53a26efb.png);
+	background-size: 100% auto;
+}
+
+h1{
+	position: relative;
+	
+	text-align: center;
+	color: #000000;
+	font-size: 40px;
+	
+	letter-spacing: 10px;
+}
+h3{
+	font-size: 25px;
+	text-align: center;
+}
+.mask{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 40px;
+	width: 300px;
+	height: 258px;
+	background-color: rgba(0,0,0,.3);
+}
+li:hover .mask{
+	display: block;
+	
+}
+span{
+	display: block;
+	text-align:right;
+	margin: 5px;
+}
+.gg li:hover{
+	cursor: pointer;
+}

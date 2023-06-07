@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100vw;
+				height: 100vh;
+
+			}
+
+			.background {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: #c2e9f6;
+				z-index: -1;
+				transition: all .4s ease-in;
+			}
+
+			input {
+				display: none;
+			}
+
+			label {
+				position: relative;
+				width: 200px;
+				height: 100px;
+				border: 5px solid #72cce3;
+				border-radius: 100px;
+				background-color: #96dcee;
+				transition: all .4s ease-in;
+				cursor: pointer;
+			}
+
+			label:before {
+				position: absolute;
+				content: '';
+				left: 4px;
+				top: 8px;
+				width: 82px;
+				height: 82px;
+				border-radius: 50%;
+				background-color: #fffaa8;
+				animation: switch-reverse .4s forwards;
+			}
+
+			label::after {
+				content: '';
+				position: absolute;
+				top: 23px;
+				left: 143px;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				box-shadow: -13px 0 0 2px #e8e8ea, -24px 14px 0 -1px #e8e8ea;
+				opacity: 0;
+				transition: all .4s ease-in;
+			}
+
+			label span {
+				position: relative;
+				left: 135px;
+				top: 45px;
+				display: block;
+				width: 10px;
+				height: 5px;
+				border-radius: 5px;
+				background-color: #fff;
+				transition: all .4s ease-in;
+			}
+
+			label span::after,
+			label span::before {
+				content: '';
+				position: absolute;
+				width: 40px;
+				height: 5px;
+				background-color: #fff;
+				transition: all 0.15s ease-in;
+				border-radius: 5px;
+			}
+
+			span::after {
+				left: -5px;
+				top: -20px;
+			}
+
+			span::before {
+				left: -5px;
+				top: 10px;
+			}
+
+			input:checked~.background {
+				background-color: #808fc7;
+			}
+
+			input:checked+label {
+				border-color: #5d6baa;
+				background-color: #6b7abb
+			}
+
+			input:checked+label::before {
+				border-color: #e8e8ea;
+				background-color: #fff;
+				animation: switch .5s forwards;
+			}
+
+			input:checked+label::after {
+				opacity: 1;
+				/* 过渡延迟时间 */
+				transition-delay: 0.25s;
+			}
+
+			input:checked+label span {
+				width: 5px;
+				left: 60px;
+			}
+
+			input:checked+label span::before {
+				width: 5px;
+				height: 5px;
+				top: -25px;
+			}
+
+			input:checked+label span::after {
+				width: 5px;
+				height: 5px;
+				top: 20px;
+				left: -30px;	
+			}
+
+			@keyframes switch {
+				0% {
+					left: 4px;
+					top: 8px;
+				}
+
+				100% {
+					left: 104px;
+				}
+			}
+			@keyframes switch-reverse{
+				0%{
+					left: 104px;
+				}
+				100%{
+					left: 4px;
+					top: 8px;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="cc">
+		<label for="cc">
+			<span></span>
+		</label>
+		<div class="background"></div>
+		
+	</body>
+</html>

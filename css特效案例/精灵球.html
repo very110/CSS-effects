@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				--yx:'';
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #000;
+			}
+			div.jinlin{
+				
+				position: relative;
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				border-radius: 50%;
+				box-shadow:0px 20px 155px blue inset,0px 0px 40px 5px yellow,
+				110px 20px 4px 5px white inset;
+				transform: rotate(-100deg) scale(.2);
+				border: 1px solid #000;
+				perspective: 700px;
+				transform-style: preserve-3d;
+			}
+			div.jinlin::after{
+				content: '';
+				position: absolute;
+				inset: 100px;
+				border: 15px solid rgba(0, 0, 0,.7);
+				border-radius: 50%;
+				background-image: radial-gradient(rgba(203, 203, 213) 30% ,
+				 black 32%,rgba(203, 203, 213) 45%);
+				box-shadow:  0px 0px 0 8px rgba(203, 203, 213) inset;
+				transform: translateX(-20%) translateZ(0px);
+			}
+			div.jinlin::before{
+				content: var(--yx,'');
+				color: pink;
+				position: absolute;
+				inset: 0;
+				transform: rotate(5deg);
+				border-radius: 50%;
+				border: 10px solid rebeccapurple;
+				transform: rotateY(80deg) translateZ(40px)  scale(2);
+				
+			}
+			
+			.jinlin-child{
+				color: pink;
+				position: absolute;
+				inset: 0;
+				transform: rotate(5deg);
+				border-radius: 50%;
+				border: 10px solid rebeccapurple;
+				transform: rotateX(-82deg) translateZ(40px)  scale(2);
+			}
+			div.jinlin:hover::after{
+				outline: 2000px solid rgba(255,255,255,.3);
+				/* outline-offset: -100px; */
+			}
+			div.jinlin:hover{
+				transition: all 3s linear;
+				transform: rotate(-660deg);
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="jinlin">
+			<div class="jinlin-child"></div>
+		</div>
+	</body>
+</html>

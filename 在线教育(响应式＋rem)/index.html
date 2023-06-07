@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="keywords" content="在线培训,智慧教育">
+		<meta name="description" content="提供在线教育解决方案">
+		<title>某某在线教育有限公司</title>
+		<link rel="stylesheet" href="./css/index.css">
+		<link rel="stylesheet" href="./css/commos.css">
+		<link rel="stylesheet" href="./css/ele.css">
+		<link rel="stylesheet" href="./css/element.css">
+
+		<style>
+			
+
+			.header {
+				width: 100%;
+				height: 60px;
+				background-color: #343a40;
+				display: flex;
+				justify-content: space-between;
+				font-size: 0.15rem;
+				align-items: center;
+				color: #728790;
+			}
+
+			.header p {
+				color: #fff;
+			}
+
+			.left-header ul {
+				display: flex;
+				align-items: center;
+			}
+
+			.left-header ul * {
+				margin-left: 2%;
+			}
+
+			.left-header ul li:nth-of-type(2)::after {
+				content: '';
+				width: 0;
+				height: 0;
+				border: 0.04717rem solid #728790;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+				display: inline-block;
+				margin-left: 5px;
+			}
+
+			.search input {
+				height: 0.25rem;
+				border-radius: 5px;
+				padding: 10px;
+				margin-right: 5px;
+				width: 70%;
+				outline: none;
+			}
+
+
+			.search button {
+				background-color: #007bff;
+				border: none;
+				border-radius: 3px;
+				height: 30px;
+				padding: 5px;
+				color: #fff;
+
+			}
+
+			.right-header {
+				display: flex;
+				flex-direction: row-reverse;
+			}
+
+			.right-header li {
+				padding: 0 15px;
+			}
+
+			.right-header li::after {
+				content: '';
+				width: 0;
+				height: 0;
+				border: 5px solid #728790;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+				display: inline-block;
+				margin-left: 5px;
+
+			}
+
+			.swiper {
+				margin-top: 0.09434rem;
+				width: 100%;
+				height: 300px;
+				border: 1px solid #000;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+
+
+
+			.ppz .wenzi:nth-of-type(1) {
+				font-size: 0.25rem;
+				text-align: center;
+				padding-top: 1.5rem;
+				color: #fff;
+
+			}
+
+			/* 	.ppz .wenzi:nth-of-type(2) {
+				font-size: 0.20rem;
+				text-align: center;
+				line-height: 0.25rem;
+				color: #fff;
+
+			} */
+
+			.headImg {
+				width: 100%;
+				height: 2.25rem;
+			}
+
+			.wenz {
+				padding: 15px;
+				height: 0.5625rem;
+			}
+
+			.wenz h2 {
+				font-size: 0.125rem;
+			}
+
+			.wenz p {
+				font-size: 0.125rem;
+			}
+
+			.swipz div {
+				width: 100%;
+				height: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			input::-webkit-input-placeholder {
+				font-size: 0.125rem;
+			}
+
+			.swipz:nth-of-type(1) div {
+				background-image: url("https://img0.baidu.com/it/u=1275095085,1961143463&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800");
+			}
+
+			.swipz:nth-of-type(2) div {
+				background-image: url("https://img2.baidu.com/it/u=2218443973,3224745759&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800");
+			}
+
+			.swipz:nth-of-type(3) div {
+				background-image: url("https://img2.baidu.com/it/u=3089456875,3715235379&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500");
+			}
+
+			.leftImg img {
+				vertical-align: top;
+				width: 70px;
+				height: 70px;
+			}
+
+			.leftImg {
+				width: 70px;
+				height: 70px;
+				float: left;
+			}
+
+			.rightText {
+				font-size: 16px;
+				padding-left: 90px;
+			}
+
+			.rightText h3 {
+				font-weight: 500;
+				padding: 0 0 5px 0;
+			}
+
+			.sfq p {
+				color: #fff;
+				background-color: #0275d8;
+				font-size: 20px;
+				height: 0.4125rem;
+				line-height: 0.4125rem;
+				box-sizing: content-box;
+				padding: 10px 0 10px 0.125rem;
+			}
+
+			.sfq ul {
+				display: flex;
+				flex-direction: column;
+				border-left: 1px solid #efefef;
+				border-right: 1px solid #efefef;
+			}
+
+			.sfq ul li {
+				font-size: 20px;
+				height: 0.3125rem;
+				line-height: 0.3125rem;
+				padding: 10px 0 10px 0.125rem;
+				box-sizing: content-box;
+				border-bottom: 1px solid #efefef;
+				transition: all .3s linear;
+
+			}
+
+			.sfq ul li:hover {
+				padding: 0.1875rem;
+				height: 1rem;
+			}
+
+
+			.list {}
+
+			.list li {
+				list-style-type: decimal;
+				list-style-position: inside;
+				font-size: 0.125rem;
+			}
+
+			.sz h3 {
+				font-size: 0.5rem;
+				font-weight: 500;
+			}
+
+			.menu {
+				width: 50px;
+				height: 40px;
+				border: 1px solid #efefef;
+				z-index: 90;
+				cursor: pointer;
+			}
+
+			.sangs {
+				float: left;
+				margin-top: 10px;
+				margin-left: 4px;
+			}
+
+			.sangs div {
+				pointer-events: none;
+				float: left;
+				top: 0;
+				left: 20px;
+				width: 20px;
+				height: 3px;
+				background-color: #343a40;
+				margin-top: 3px;
+				margin-left: 10px;
+			}
+
+			.el-menu-item {
+				padding-left: 11px !important;
+
+			}
+
+			.sz p {
+				font-size: 16px;
+				padding: 10px;
+
+			}
+
+			.sz p:nth-of-type(2) {
+				color: #efefef;
+			}
+
+
+			.tex {
+				display: none;
+			}
+
+			.hidden {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-12  sj-hidden">
+					<div class="header">
+						<div class="left-header col-7">
+							<ul>
+								<p>Brabd</p>
+								<p>Link</p>
+								<li>link</li>
+								<li>dropdown Link</li>
+								<div class="search">
+									<input type="text" placeholder="Search"><button>Search</button>
+								</div>
+							</ul>
+						</div>
+						<div class="right-header col-5">
+							<li>dropdown Link</li>
+							<p>Link</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 sj-black" style="display: none;">
+
+					<div class="sz">
+						<h3>Navbar</h3>
+						<div class="menu">
+							<div class="sang">
+								<div class="sangs">
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+							</div>
+						</div>
+						<div class="tex">
+							<p>home</p>
+							<p>Feayuers</p>
+							<p>picing</p>
+							<el-menu>
+								<el-submenu>
+									<template slot="title">Dropdown link</template>
+									<el-menu-item index="2-1">选项1</el-menu-item>
+									<el-menu-item index="2-2">选项2</el-menu-item>
+									<el-menu-item index="2-3">选项3</el-menu-item>
+								</el-submenu>
+							</el-menu>
+						</div>
+					</div>
+				</div>
+			</div>
+			<el-row>
+				<el-col :xs="24" class="ppz">
+					<el-carousel trigger="click" height="3.2rem">
+						<el-carousel-item class="swipz">
+							<div>
+								<p class="wenzi">Faucibus porta lacus fringilla vel<br />
+									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
+									elit non mi
+									porta gravida
+									at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									<br />Aenean sit
+									amet erat nunc
+								</p>
+
+							</div>
+						</el-carousel-item>
+						<el-carousel-item class="swipz">
+							<div>
+								<p class="wenzi">Faucibus porta lacus fringilla vel<br />
+									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
+									elit non mi
+									porta gravida
+									at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									<br />Aenean sit
+									amet erat nunc
+								</p>
+
+
+							</div>
+						</el-carousel-item>
+						<el-carousel-item class="swipz">
+							<div>
+								<p class="wenzi">Faucibus porta lacus fringilla vel<br />
+									Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
+									elit non mi
+									porta gravida
+									at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									<br />Aenean sit
+									amet erat nunc
+								</p>
+
+							</div>
+						</el-carousel-item>
+					</el-carousel>
+
+				</el-col>
+			</el-row>
+			<el-row style="margin-top: 0.125rem;" gutter="20">
+				<el-col :sm="8">
+					<el-card shadow="never">
+						<div class="headImg">
+							<img src="https://img2.baidu.com/it/u=2218443973,3224745759&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+								alt="">
+						</div>
+						<div class="wenz">
+							<h2>Cras justo</h2>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<el-button type="primary"
+								style="display: block;float: left; padding: 0.09375rem 0.125rem; font-size: 0.125rem;margin: 10px 0;">
+								action1
+							</el-button>
+							<el-button
+								style="display: block;float: left; border: none; padding: 0.09375rem 0.125rem;color: #5eadff;font-size: 0.125rem;margin: 10px 0;">
+								action</el-button>
+						</div>
+
+					</el-card>
+				</el-col>
+				<el-col :sm="8">
+					<el-card shadow="never">
+						<div class="headImg">
+							<img src="https://img0.baidu.com/it/u=1275095085,1961143463&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+								alt="">
+						</div>
+						<div class="wenz">
+							<h2>Cras justo</h2>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<el-button type="primary"
+								style="display: block;float: left; padding: 0.09375rem 0.125rem; font-size: 0.125rem;margin: 10px 0;">
+								action
+							</el-button>
+							<el-button
+								style="display: block;float: left; border: none; padding: 0.09375rem 0.125rem;color: #5eadff;font-size: 0.125rem; margin: 10px 0;">
+								action</el-button>
+						</div>
+
+					</el-card>
+				</el-col>
+
+				<el-col :sm="8">
+					<el-card shadow="never">
+						<div class="headImg">
+							<img src="https://img2.baidu.com/it/u=3089456875,3715235379&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+								alt="">
+						</div>
+						<div class="wenz">
+							<h2>Cras justo</h2>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<el-button type="primary"
+								style="box-sizing: content-box; display: block;float: left; padding: 0.09375rem 0.125rem; font-size: 0.125rem;margin: 10px 0;">
+								action
+							</el-button>
+							<el-button
+								style="box-sizing: content-box; display: block;float: left; border: none; padding: 0.09375rem 0.125rem;color: #5eadff;margin: 10px 0;font-size: 0.125rem;">
+								action</el-button>
+						</div>
+					</el-card>
+				</el-col>
+			</el-row>
+			<el-row style="margin-top: 0.125rem;" gutter="20">
+				<el-col :sm="8">
+					<div>
+						<div class="leftImg">
+							<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+								alt="">
+						</div>
+						<div class="rightText">
+							<h3>Consectetur adipiscing elit</h3>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+						</div>
+					</div>
+					<div class="pb-hidden" style="margin:0.1875rem 0 0 0.5rem;">
+						<div class="leftImg">
+							<img src="https://img0.baidu.com/it/u=2521003561,2654141216&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+								alt="">
+						</div>
+						<div class="rightText">
+							<h3>Consectetur adipiscing elit</h3>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
+								porta
+								gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<div>
+							</div>
+						</div>
+					</div>
+				</el-col>
+				<el-col :sm="8">
+					<div class="sfq">
+						<p>Home</p>
+						<ul>
+							<li>Eget porttitor</li>
+							<li>Eget porttitor lorem...</li>
+							<li>Help</li>
+						</ul>
+						<p>Home
+							<span style="font-size: 12px;float: right; margin-right: 12px;">14</span>
+						</p>
+
+					</div>
+				</el-col>
+				<el-col :sm="8">
+					<ul class="list">
+						<li>Lorem ipsum dolor sit amet</li>
+						<li>Consectetur adipiscing elit</li>
+						<li>Integer molestie lorem at massa</li>
+						<li>Facilisis in pretium nisl aliquet</li>
+						<li>Nulla volutpat aliquam velit</li>
+						<li>
+							Faucibus porta lacus fringilla vel</li>
+						<li>Aenean sit amet erat nunc</li>
+						<li>Eget porttitor lorem</li>
+					</ul>
+				</el-col>
+			</el-row>
+		</div>
+	</body>
+	<script src="./js/vue.min.js"></script>
+	<script src="./js/element.js"></script>
+	<script>
+		new Vue({
+			el: '.container',
+			data: {
+
+			}
+		})
+		let sz = document.querySelector('.menu');
+		let sq = document.querySelector('.tex');
+		sz.onclick = function() {
+			sq.classList.toggle('hidden');
+		}
+	</script>
+</html>

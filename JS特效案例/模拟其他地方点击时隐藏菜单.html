@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			.g {
+				opacity: 0;
+				top: 0;
+				position: absolute;
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(20, 20, 20, .3);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				pointer-events: none;
+				transition: all .5s;
+			}
+
+			.g-nav {
+				padding: 25px;
+				height: 150px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				background-color: aliceblue;
+			}
+		</style>
+	</head>
+	<body>
+		<button>点击弹框</button>
+		<div class="g">
+			<ul class="g-nav">
+				<input type="text">
+				<input type="text">
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	let nav = document.querySelector('.g-nav');
+	let g = document.querySelector('.g');
+	let btn = document.querySelector('button');
+	g.addEventListener('click', (e) => {
+		if (!nav.contains(e.target)) {
+
+			g.style.cssText = "pointer-events: none; opacity:0;"
+		}
+	})
+	btn.addEventListener('click', () => {
+		g.style.opacity = '1';
+		g.style.pointerEvents = 'auto';
+
+	})
+</script>

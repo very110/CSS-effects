@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function fn(){
+		console.log(this.name,arguments);
+		return 111;
+	}
+	let o={
+		name:'gg'
+	}
+	Function.prototype.myCall=function(o,...args){
+		o=o||window;
+		o.fn=this;
+		let res=o.fn(...args);
+		delete o.fn;
+		return res;
+	}
+	console.log(fn.myCall(o,1,2));
+	
+</script>

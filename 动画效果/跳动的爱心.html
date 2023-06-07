@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			background-color: black;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.love{
+			position: relative;
+			background-color: red;
+			width: 300px;
+			height: 300px;
+			transform: rotate(45deg);
+			animation: swr .5s linear infinite;
+		}
+		.love::after,.love:before{
+			content: '';
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			background-color: red;
+			animation: swr .5s linear infinite;
+		}
+		.love::after{
+			/* background-color: aqua; */
+			content: '';
+			font-size: 30px;
+			text-align: right;
+			color: #fff;
+			top: 0px;
+			left: -148px;
+		}
+		.love::before{
+			/* background-color: aqua; */
+			top: -148px;
+			left: 0;
+		}
+		@keyframes swr {
+			0%{
+				width: 300px;
+				height: 300px;
+			}
+			50%{
+				width: 330px;
+				height: 330px;
+			}
+			100%{
+				width: 300px;
+				height: 300px;
+			}
+		}
+		
+		</style>
+	</head>
+	<body>
+		<div class="love"></div>
+	</body>
+</html>

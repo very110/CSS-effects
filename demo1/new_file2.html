@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<canvas width="800px" height="500px" id="ca"></canvas>
+	</body>
+</html>
+<script src="./new_file.js"></script>
+<script>
+	console.log(new a().c);
+	let ca = document.querySelector('#ca');
+	let ctx = ca.getContext("2d");
+	ctx.beginPath()
+	let img = new Image();
+	img.src = './ggc.png';
+	img.onload = function() {
+
+		ctx.drawImage(img, 0, 30, 50, 20, 50, 200, 100, 50)
+	}
+
+	ctx.arc(75, 75, 50, 0, Math.PI);
+	ctx.stroke()
+	ctx.closePath();
+
+	ctx.beginPath()
+	ctx.arc(100, 200, 100, 0, Math.PI * 1.5)
+	ctx.stroke()
+
+	ctx.beginPath()
+
+	ctx.arc(300, 200, 100, 0, Math.PI * 1.5)
+	ctx.stroke()
+	ca.onclick = function() {
+		console.log(1);
+	}
+</script>

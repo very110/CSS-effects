@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul li:nth-last-child(-2n+3) {
+				color: aqua;
+			}
+			ul{
+				
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<ul>
+			<li>1个</li>
+			<li>2个</li>
+			<li>3个</li>
+			<li>4个</li>
+			<li>5个</li>
+			<li>6个</li>
+			<li>7个</li>
+			<li>8个</li>
+			<li>9个</li>
+			<li>10个</li>
+		<div class="wenzi">Faucibusportala cusfringillavelCrasjustoodiodapibusacfacilisisinegestasegetquam. Donecidelitnonportagravida
+			ategetmetus. Nullamiddoloridnibhultriciesvehiculautidelit.
+		
+		</div>
+		<canvas width="500" height="500" style="border: 1px solid #000;"></canvas>
+	</body>
+</html>
+<script>
+	let canvas = document.querySelector('canvas');
+	let ctx = canvas.getContext('2d');
+	ctx.fillStyle = "red"
+	let bg = new Image();
+	bg.src = "../demo1/stage_sky.png";
+	let role = new Image();
+	role.src = "../像素小鸟游戏/image/pipe_head_1.png";
+	bg.onload = function() {
+		console.log(this);
+		ctx.drawImage(bg, 0, 0, 500, 500);
+		imageData= ctx.getImageData(0, 0, 100, 100);
+	}
+	let imageData;
+			console.log(role.complete);
+		role.onload = function() {
+			ctx.drawImage(role, 0, 0, 100, 100);
+		}
+		
+</script>

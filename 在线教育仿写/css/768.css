@@ -1,0 +1,10 @@
+html{
+	font-size: calc(768px / 10);
+}
+.s760-hidden {
+	display: none;
+}
+
+.s760-black {
+	display: block !important;
+}

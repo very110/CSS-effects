@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function sigin(className) {
+		let ins = null;
+		return new Proxy(className, {
+			construct(tag, args) {
+				if (!ins) {
+					ins = new tag(...args);
+				}
+				return ins;
+			}
+		})
+	}
+
+	function video() {
+		class Video {
+			constructor(...a) {
+				console.log('nb', a);
+			}
+		}
+		return sigin(Video);
+	}
+
+	let Video = video();
+	let v3 = new Video(1, 2, 3);
+	let v4 = new Video();
+	Video.prototype.a = 230;
+	console.log(v3, v4);
+</script>

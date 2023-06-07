@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	
+	function Stu(){
+		
+	}
+	function _instanceof(o1,o2){
+		return o1.__proto__===o2.prototype; 
+	}
+	
+	let stu=new Stu();
+
+	console.log(_instanceof(stu,Stu));
+</script>

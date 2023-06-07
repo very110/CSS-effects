@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			h2 {
+				text-align: center;
+			}
+
+			.container {
+				margin: 0 auto;
+				position: relative;
+			}
+
+			.item {
+				position: absolute;
+				width: 200px;
+				padding: 10px;
+			}
+
+			.item .pictu {
+				padding: 10px;
+				border: 1px solid #eee;
+				box-shadow: 0 0 5px 5px #eee;
+			}
+
+			.item img {
+				width: 100%;
+			}
+
+			.show {
+				animation: scale 1s forwards;
+			}
+
+			@keyframes scale {
+				from {
+					transform: scale(0);
+				}
+
+				to {
+					transform: scale(1);
+				}
+
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>瀑布流</h2>
+		<div class="container">
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img0.baidu.com/it/u=2518378277,1696634197&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=773"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img2.baidu.com/it/u=3202947311,1179654885&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+						alt="">
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>
+<script>
+	//瀑布流特点每个图片等宽,可不等高
+
+	window.onload = function() {
+		wataFull()
+
+
+		let con = document.querySelector('.container');
+		document.onscroll = throttle(function(e) {
+			console.log(e);
+			let items = document.querySelectorAll('.item');
+			console.log(items[items.length - 1].getBoundingClientRect().top);
+			if (items[items.length - 1].getBoundingClientRect().top < window.innerHeight) {
+				for (let i = 0; i < items.length; i++) {
+					items[i].className = 'item';
+				}
+				for (let i = 0; i < 3; i++) {
+					for (let j = 1; j < 3; j++) {
+						con.innerHTML += `
+			<div class="item show">
+				<div class="pictu">
+					<img src="https://img0.baidu.com/it/u=925843206,3288141497&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1670950800&t=bf8b1da072c4fd80d80d9788bb822d84"
+						alt="">
+				</div>
+			</div>`
+					}
+				}
+			}
+			wataFull()
+		}, 1000)
+	}
+
+	function throttle(cb, time) {
+
+		let flag = true;
+		return function(e) {
+			if (flag) {
+				flag = false;
+				setTimeout(() => {
+					cb.bind(this)(e);
+					flag = true;
+				}, time);
+			}
+		}
+	}
+	window.onresize = throttle(wataFull, 500);
+
+	function wataFull() {
+
+		let container = document.querySelector('.container');
+		let items = document.querySelectorAll('.item');
+		//一行最多能放几个
+		let containerWidth = document.documentElement.clientWidth;
+
+		let concount = Math.floor(containerWidth / items[0].offsetWidth);
+		container.style.width = concount * items[0].offsetWidth + 'px';
+
+		let minArr = []
+		for (let i = 0; i < items.length; i++) {
+			if (i < concount) {
+
+				minArr.push(items[i].offsetHeight);
+				items[i].style.top = '0px';
+				items[i].style.left = items[i].offsetWidth * i + 'px'
+			} else {
+				let min = Math.min(...minArr);
+				let index = minArr.indexOf(min);
+				items[i].style.top = min + 'px';
+				items[i].style.left = index * items[0].offsetWidth + 'px';
+				minArr[index] += items[i].offsetHeight;
+			}
+		}
+	}
+</script>

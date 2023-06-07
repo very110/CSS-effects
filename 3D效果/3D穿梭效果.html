@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+				display: flex;
+				animation: hourRouter 11s infinite linear;
+			}
+
+			.g-container {
+				margin: auto;
+				perspective: 4px;
+				position: relative;
+			}
+
+			.g-group {
+				position: absolute;
+				width: 1000px;
+				height: 1000px;
+				left: -500px;
+				top: -500px;
+				transform-style: preserve-3d;
+				animation: move 12s infinite linear alternate
+			}
+
+			.item {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-image: url("../期末作业 星座介绍/img/1-150323152522H7.jpg");
+				background-size: cover;
+				opacity: 1;
+				animation-delay: 0;
+			}
+
+			.item-left {
+				transform: rotateY(-90deg) translateZ(500px);
+			}
+
+			.item-right {
+				transform: rotateY(90deg) translateZ(500px);
+			}
+
+			.item-top {
+				transform: rotateX(90deg) translateZ(500px);
+			}
+
+			.item-bottom {
+				transform: rotateX(-90deg) translateZ(500px);
+			}
+
+			.item-middle {
+				transform: translateZ(-500px);
+			}
+
+			@keyframes move {
+				to {
+					transform: translateZ(-500px);
+				}
+			}
+
+			@keyframes hourRouter {
+				0% {
+					filter: hue-rotate(0deg);
+				}
+
+				100% {
+					filter: hue-rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="g-container">
+			<div class="g-group fff">
+				<div class="item item-left"></div>
+				<div class="item item-right"></div>
+				<div class="item item-top"></div>
+				<div class="item item-bottom"></div>
+				<div class="item item-middle"></div>
+			</div>
+		</div>
+	</body>
+</html>

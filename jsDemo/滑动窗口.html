@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//无重复最长子串
+	var lengthOfLongestSubstring = function(s) {
+		let left = 0,
+			right = 0,
+			res = 0;
+		const myWindow = {};
+		while (right < s.length) {
+			let cur = s[right++];
+			myWindow[cur] = (myWindow[cur] || 0) + 1;
+			while (myWindow[cur] > 1) {
+				let d = s[left++];
+				myWindow[d]--;
+			}
+			res = Math.max(res, right - left);
+		}
+		return res;
+	};
+	console.log(lengthOfLongestSubstring('aaaba'));
+</script>

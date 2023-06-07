@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+</html>
+<script>
+	const treeData = [{
+			id: 2,
+			title: '中国',
+			parent_id: 0,
+			children: [{
+					id: 3,
+					title: '广东省',
+					parent_id: 2,
+					children: [{
+						id: 4,
+						title: '广州市',
+						parent_id: 3,
+						children: [{
+							id: 5,
+							title: '天河区',
+							parent_id: 4
+						}]
+					}]
+				},
+				{
+					id: 6,
+					title: '湖南省',
+					parent_id: 2
+				}
+			]
+		},
+		{
+			id: 1,
+			title: '俄罗斯',
+			parent_id: 0,
+		},
+	]
+
+	function treeToList(data = [], result = []) {
+		data.forEach(item => {
+			if (item.children?.length > 0) {
+				treeToList(item.children, result);
+			}
+			result.push(item);
+			delete item.children;
+		})
+		return result;
+	}
+</script>

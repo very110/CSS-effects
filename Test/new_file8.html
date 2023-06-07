@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.root {
+				color: var(--textColor, blue);
+				display: flow-root;
+				--textColor: red;
+				--textColor: black;
+			}
+
+			.default {
+
+				/* --textColor:red; */
+			}
+
+			div {
+				width: 100px;
+				height: 100px;
+				left: 0;
+				background-color: red;
+				position: absolute;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<button>开始</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<span style="vertical-align: 10em; line-height: 25px;">abcd</span>
+	</body>
+	<script>
+		let but = document.querySelector('button');
+		let div = document.querySelector('div');
+		
+
+		function time(ele, attr, end, cb) {
+			let a = 0;
+			let p = (end - ele.getBoundingClientRect()[attr]) / 10;
+			let sped = p + ele.getBoundingClientRect()[attr];
+			let timer = setInterval(() => {
+				a++;
+				ele.style[attr] = sped + 'px';
+				sped += p;
+				if (a >= 10) {
+					clearInterval(timer);
+					if (cb) {
+						cb();
+					}
+				}
+			}, 100);
+		}
+		but.onclick = function() {
+			time(div, 'left', 200, () => {
+				setTimeout(() => {
+					time(div, 'width', 300);
+					time(div, 'height', 300);
+				}, 2000);
+			});
+		}
+	</script>
+</html>

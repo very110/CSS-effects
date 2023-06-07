@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				text-decoration: none;
+				list-style: none;
+			}
+
+			.tools-bar {
+				z-index: 1;
+				width: 30px;
+				height: 100vh;
+				background-color: #000;
+				opacity: 0.5;
+				position: fixed;
+				top: 0;
+				right: -20px;
+				transition: all .3s linear;
+			}
+
+			.tools-bar:hover {
+				right: 0;
+			}
+
+			.yuan {
+				box-sizing: content-box;
+				width: 10px;
+				height: 10px;
+				border-left: 10px solid red;
+				border-right: 10px solid blue;
+				border-top: 10px solid yellow;
+				border-bottom: 10px solid salmon;
+				border-radius: 50%;
+				margin-top: 50vh;
+			}
+
+			.aside-nav {
+				width: 300px;
+				height: 100vh;
+				position: fixed;
+				top: 0;
+				right: -300px;
+				box-shadow: 0 0 20px #000;
+			}
+
+			.aside-Header {
+				background-color: mediumpurple;
+				height: 60px;
+				line-height: 60px;
+				text-indent: 0.7em;
+				color: white;
+				font-size: 20px;
+			}
+
+			[type=checkbox]:checked~.aside-nav {
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" id="che">
+		<div class="tools-bar">
+			<label for="che">
+				<div class="yuan"></div>
+			</label>
+		</div>
+		<div class="aside-nav">
+			<div class="aside-Header">
+				<p>Header</p>
+			</div>
+		</div>
+
+	</body>
+</html>
+<script>
+	// let str='http://192.168.1.2:81/privatecloud/my/share';
+	// str=str.match(/(?<=\/\/).*/)[0].split('/',1);
+	// console.log(str)
+	// str=str.split(/\//);
+	// console.log(str)
+
+	let arr = [{
+			answer: 1,
+			categoryName: '认知CVP',
+			question: '指出形状1拼块位置'
+		},
+		{
+			answer: 1,
+			categoryName: '认知CVP',
+			question: '指出形状2拼块位置'
+		},
+		{
+			answer: 2,
+			categoryName: '认知CVP',
+			question: '完成物品拼图'
+		},
+		{
+			answer: 3,
+			categoryName: '认知CVP',
+			question: '指出手套拼块位置'
+		},
+		{
+			answer: 1,
+			categoryName: '语言表达EL',
+			question: '说出形状名称'
+		},
+		{
+			answer: 2,
+			categoryName: '语言表达EL',
+			question: '说出物件大小'
+		},
+		{
+			answer: 3,
+			categoryName: '语言表达EL',
+			question: '说出物件名称'
+		}
+	]
+	let map = new Map();
+	let arrs = [];
+	for (let i = 0; i < arr.length; i++) {
+		for (k in arr[i]) {
+			map.set(arr[i]['categoryName'], 'categoryName');
+		}
+	}
+	for (let k of map.keys()) {
+		arrs.push({
+			'categoryName': k
+		})
+	}
+
+	for (let i = 0; i < arrs.length; i++) {
+		arrs[i].categoryName
+		arr.forEach((item) => {
+			for (k in item) {
+				if (arrs[i]['categoryName'] === item[k] && Array.isArray(arrs[i]['arr' + item['answer']])) {
+					arrs[i]['arr' + item['answer']].push(item['question']);
+				} else if (arrs[i]['categoryName'] === item[k]) {
+					arrs[i]['arr' + item['answer']] = [item['question']];
+				}
+			}
+		})
+	}
+
+	console.log(arrs);
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wapper-box {
+				width: 200px;
+				height: 200px;
+				margin: 100px auto;
+				perspective: 400px;
+				transform-style: preserve-3d;
+				position: relative;
+
+			}
+
+			.wapper-box div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				position: absolute;
+				transform-origin: 50% 50%;
+			}
+
+			.front {
+				transform: translateZ(100px);
+			}
+
+			.back {
+				transform: translateZ(-100px);
+			}
+
+			.left {
+				transform: rotateY(90deg) translateZ(100px);
+			}
+
+			.right {
+				transform: rotateY(-90deg) translateZ(100px);
+
+			}
+
+			.top {
+				transform: rotateX(90deg) translateZ(100px);
+			}
+
+			.bottom {
+				transform: rotateX(-90deg)translateZ(100px);
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="wapper">
+			<div class="wapper-box">
+				<div class="front">前</div>
+				<div class="back">后</div>
+				<div class="left">左</div>
+				<div class="right">右</div>
+				<div class="top">上</div>
+				<div class="bottom">下</div>
+			</div>
+		</div>
+
+	</body>
+</html>
+<script>
+	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+	for (let i = 0; i < arr.length; i++) {
+		let round = Math.floor(Math.random() * arr.length);
+		let tmp = arr[round];
+		arr[round] = arr[i];
+		arr[i] = tmp;
+	}
+</script>

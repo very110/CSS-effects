@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.c {
+				margin-top: 100px;
+				width: 200px;
+				height: 35px;
+				display: flex;
+				color: #efefef;
+				border: none;
+				perspective: 500px;
+				background-image: linear-gradient(to right, #0dcedf, #ec0dfc);
+				background-position-x: 1px;
+				transform: translateX(100px);
+			}
+
+			.a {
+				width: 100px;
+				height: 20px;
+				background-color: red;
+				transform: translate3d(0, 0px, 30px);
+			}
+
+			.g-nav {
+				width: 300px;
+				background-color: darkred;
+				height: 100px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			li {}
+
+			.g-login {
+				margin-left: auto;
+			}
+
+			.wrapper {
+				display: flex;
+				background-color: #0dcedf;
+			}
+
+			.wrapper .inner {
+				overflow: hidden;
+				transition: all .5s;
+			}
+
+			.wrapper:hover .inner {
+				color: red;
+			}
+
+			.top {
+				position: relative;
+				width: 30px;
+				height: 0.5px;
+				background-color: red;
+			}
+
+			.border-line::after {}
+
+			.z {
+				width: clamp(10px, 20px, 30px);
+			}
+
+			img {
+				max-width: 100%;
+			}
+
+			.wp {
+				background-image: url('../像素小鸟游戏/image/ok.png');
+				width: 50px;
+				height: 50px;
+				background-size: 40px auto;
+				background-position: 0px 0;
+				/* transform: translate(100px, 100px); */
+				/* animation: na .5s linear forwards; */
+			}
+
+			@keyframes na {
+				to {
+					transform: translate(300px, 300px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top border-line"></div>
+		<div class="wp" draggable="true"></div>
+		<div class="c">
+			<div class="a">
+				<div class="a" draggable="true">123</div>
+			</div>
+			<div class="a"></div>
+			<div class="a"></div>
+		</div>
+	</body>
+</html>
+<script>
+	function a() {
+		let b = 10;
+
+		function c() {
+			console.log(d);
+		}
+		c();
+		let d = 200;
+
+
+	}
+	console.log(a());
+</script>

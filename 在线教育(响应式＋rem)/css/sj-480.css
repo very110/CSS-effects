@@ -1,0 +1,11 @@
+html {
+	font-size: calc(480px/12);
+}
+
+.sj-hidden {
+	display: none;
+}
+
+.sj-black {
+	display: block !important;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//于散列表的区别就是字典是以字符串的形式来查找和添加val,而散列是通过哈希函数得到对应的哈希值来查找和添加val
+	class Dictionary {
+		table = {};
+		toStrfn(key) {
+			if (key === null) {
+				return 'NULL'
+			} else if (key === undefined) {
+				return 'undefined'
+			} else if(typeof key==='string'||key instanceof String){
+				return key;
+			}
+			return JSON.stringify(key);
+		}
+		hasKey(key) {
+			return this.table[this.toStrfn(key)] != undefined;
+		}
+		set(key, val) {
+			if (key != null && val != null) {
+				this.table[this.toStrfn(key)] = new values(key, val);
+				return true;
+			}
+			return false;
+		}
+		get(key) {
+			if (this.hasKey(key)) {
+				return this.table[this.toStrfn(key)].val;
+			}
+		}
+		size() {
+			return Object.keys(this.table).length;
+		}
+		remove(key) {
+			if (this.hasKey(key)) {
+				delete this.table[this.toStrfn(key)];
+				return true
+			}
+			return false;
+		}
+		keys() {
+			return this.keysValues().map(item => item.key);
+		}
+		values() {
+			return this.keysValues().map(item => item.val);
+		}
+		keysValues() {
+			return Object.values(this.table);
+		}
+		isEmpty(){
+			return this.size()===0;
+		}
+		clear(){
+			this.table={};
+		}
+	}
+	class values {
+		constructor(key, val) {
+			this.key = key;
+			this.val = val;
+		}
+	}
+	var zi = new Dictionary();
+	zi.set('12',1)
+	zi.set('13',1)
+	zi.set('14',1)
+	console.log(zi.keys());
+
+</script>

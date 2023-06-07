@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.box {
+				width: 300px;
+				height: 300px;
+				background-color: aliceblue;
+				margin: 200px 300px;
+			}
+
+			.cc {
+				width: 300px;
+				height: 300px;
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<span>123</span>
+		<div class="box">
+			<div class="cc">
+
+				<input type="radio" name="" id="">
+			</div>
+		</div>
+		<input type="file" multiple id="fl">
+		<img src="../demo1/ggc.png" alt="">
+		<a href="" download>下载</a>
+	</body>
+</html>
+<script>
+	let fl = document.querySelector('#fl');
+	let span = document.querySelector('span');
+	let img = document.querySelector('img');
+	document.onpaste = function(e) {
+		let c = e.clipboardData;
+		console.log(c.items);
+		img.src=URL.createObjectURL(c.items[0].getAsFile());	
+	}
+	document.oncopy = function(e) {
+		let c = e.clipboardData;
+		console.log(c.items[0]);
+	}
+	fl.onchange = function() {
+		let arr=this.files[0].arrayBuffer();
+		arr.then(val=>{
+			let file=new File([val],'文件',{
+					type:'image/jpeg'
+				});
+				img.src=URL.createObjectURL(file)
+		})
+	
+	}
+	document.querySelector('a').onclick=function(){
+		let file=new File(['<h1>123</h1>'],'标签',{
+			type:'text/html'
+		})
+		this.href=URL.createObjectURL(file);
+		this.download='xxx'
+	}
+</script>

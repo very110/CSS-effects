@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	
+	function Stu(){
+		
+	}
+	function Person(){
+		
+	}
+	Stu.prototype=new Person();
+	
+	
+	function _instanceof(o1,o2){
+		if(!o1||!o2)return false;
+		return o1.__proto__===o2.prototype?true:_instanceof(o1.__proto__,o2); 
+	}
+	                                                    
+	
+	let stu=new Stu();
+
+	
+</script>

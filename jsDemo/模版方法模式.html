@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	class container {
+		getData() {
+			throw new Error("错误");
+		}
+
+		rander(list) {
+			console.log('渲染', list);
+		}
+
+		init() {
+			let list = this.getData();
+			this.rander(list);
+		}
+	}
+	class mo1 extends container {
+		getData() {
+			console.log('开始获取数据mo1');
+			return 'mo1数据'
+		}
+	}
+	class mo2 extends container {
+		getData() {
+			console.log('开始获取数据mo2');
+			return 'mo2数据'
+		}
+	}
+
+	new mo1().init()
+	new mo2().init()
+</script>

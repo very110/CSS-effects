@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	class stu{
+		
+		static #isqq=null;
+		constructor(name,age){
+			if(!stu.#isqq){
+				this.name=name;
+				this.age=age;
+				stu.#isqq=this;
+			}
+			return stu.#isqq;
+		}
+	}
+	
+	
+</script>

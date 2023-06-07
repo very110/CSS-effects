@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body{
+		}
+		
+		.flex-box {
+		    margin: auto;
+		    width: 100vw;
+		    height: 200px;
+		    display: flex;
+		    justify-content: space-between;
+		    flex-wrap: nowrap;
+		}
+		
+		.box {
+		    flex: 1 1 auto;
+		    height: 200px;
+		    margin: 5px;
+			background-color: pink;
+		}
+		p {
+			position: absolute;
+			display: block;
+			background-image: url('../像素小鸟游戏/image/pipe_head_2.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 300px;
+			height: 399px;
+		    padding: 5px;
+			mix-blend-mode: difference;
+			background-color: red;
+			background-blend-mode: lighten;
+		
+		}
+	.box{
+		position: relative;
+		top: 100px;
+		width: 500px;
+		height: 500px;
+		border: 1px solid #000;
+	}
+	.box div{
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		margin: auto;
+		
+	}
+		
+	</style>
+</head>
+<body>
+		
+		<div class="box">
+			
+		</div>
+		<p>123</p>
+</body>
+</html>
+<script>
+	let nameSiteMapping = new Map();
+	 
+	// 设置 Map 对象
+	nameSiteMapping.set("Google", undefined);
+	nameSiteMapping.set("Runoob", 2);
+	nameSiteMapping.set("Taobao", 3);
+
+</script>

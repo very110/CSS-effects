@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			.wp {
+
+
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				border-radius: 50%;
+
+				/* animation: na .5s linear forwards; */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wp" draggable="true"></div>
+	</body>
+</html>
+<script>
+	let g = document.querySelector('.wp');
+	window.addEventListener('click', function(e) {
+		let x = e.clientX;
+		let y = e.clientY;
+		move(x, y)
+	})
+
+	function move(x, y) {
+		let gRect = g.getBoundingClientRect();
+		let initX = gRect.left;
+		let initY = gRect.top;
+		//效率高和原生css的动画一样
+		g.animate([{
+				transform: `translate(${initX}px, ${initY}px)`
+			},
+			{
+				transform: `translate(${x-gRect.width/2}px, ${y-gRect.height/2}px)`
+			}
+		], {
+			duration: 1000,
+			fill: "forwards"
+		})
+	}
+</script>

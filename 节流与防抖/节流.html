@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		.box {
+			width: 200px;
+			height: 20px;
+			background - color: red;
+		}
+	</style>
+	<body>
+		<button class="box">提交</button>
+	</body>
+</html>
+<script>
+	let bt = document.querySelector('.box');
+	let flag = true;
+	bt.onclick = async function() {
+		if (flag) {
+			flag = false;
+			console.log(1);
+			let b = await new Promise((r, j) => {
+				setTimeout(() => {
+					console.log("请求收到");
+					r('zzz');
+				}, 3000)
+			});
+			
+			setTimeout(() => {
+				console.log("定时器执行", b);
+				flag = true;
+			}, 5000)
+		}
+	}
+</script>

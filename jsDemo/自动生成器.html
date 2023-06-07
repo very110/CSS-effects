@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function* gen() {
+		let res1 = yield new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve('成功1')
+			}, 2000)
+		})
+		console.log(res1);
+		let res2 = yield new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve('成功2')
+			}, 1000)
+		})
+		console.log(res2);
+	}
+
+	function autoGto(gen) {
+		let iterator = gen();
+
+		function next(data) {
+			let res = iterator.next(data);
+			if (res.done) return;
+			res.value.then((val) => {
+				next(val);
+			})
+		}
+		next();
+	}
+	autoGto(gen);
+</script>
